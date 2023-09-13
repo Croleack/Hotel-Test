@@ -13,14 +13,9 @@ struct BValidationBlock: View {
     
     var body: some View {
 	   VStack(alignment: .leading, spacing: 0) {
-		  VStack(alignment: .leading, spacing: 0) {
-			 Text("Номер телефона")
-				.font(.subheadline)
-				.foregroundColor(Color("PaleGray"))
-			 
+		  
 			 BValidationTelephone()
-		  }
-		  .padding()
+		 
 		  
 		  VStack(alignment: .leading, spacing: 0){
 			 Text("Почта")

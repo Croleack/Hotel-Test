@@ -13,6 +13,13 @@ class BBookingViewModel: ObservableObject {
     @Published var bookingData: BookingData?
     @Published var tourists: [Tourist] = [Tourist()]
     
+    var totalAmount: Int {
+	   let tourPrice = bookingData?.tourPrice ?? 0
+	   let fuelCharge = bookingData?.fuelCharge ?? 0
+	   let serviceCharge = bookingData?.serviceCharge ?? 0
+	   return tourPrice + fuelCharge + serviceCharge
+    }
+    
     private var cancellables: Set<AnyCancellable> = []
     
     init() {

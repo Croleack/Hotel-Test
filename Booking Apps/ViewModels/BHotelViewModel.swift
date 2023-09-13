@@ -12,7 +12,7 @@ class BHotelViewModel: ObservableObject {
 	
 	@Published var hotelData: BHotelData?
 	
-	private var cancellables: Set<AnyCancellable> = []
+	private var cancellables = Set<AnyCancellable>()
 	
 	init() {
 		loadData()

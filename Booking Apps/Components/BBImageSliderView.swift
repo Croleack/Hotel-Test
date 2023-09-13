@@ -17,18 +17,24 @@ struct BSliderView: View {
 	   VStack {
 		  TabView(selection: $selection) {
 			 ForEach(0..<imageUrls.count, id: \.self) { i in
-				if let url = URL(string: imageUrls[i]),
-				   //TODO: - in the future, this function should be rewritten for an asynchronous network call
-				   let data = try? Data(contentsOf: url),
-				   let uiImage = UIImage(data: data) {
-				    
-				    Image(uiImage: uiImage)
-					   .resizable()
-					   .scaledToFit()
-					   .clipShape(RoundedRectangle(cornerRadius: 8))
-				} else {
-				    Image(systemName: "photo.fill")
-					   .resizable()
+				if let url = URL(string: imageUrls[i]) {
+				    AsyncImage(url: url) { phase in
+					   switch phase {
+					   case .empty:
+						  ProgressView()
+					   case .success(let image):
+						  image
+							 .resizable()
+							 .scaledToFit()
+							 .clipShape(RoundedRectangle(cornerRadius: 8))
+					   case .failure:
+						  Image(systemName: "photo.fill")
+					   @unknown default:
+						  EmptyView()
+					   }
+				    }
+				    .frame(maxWidth: .infinity, maxHeight: .infinity)
+				    .tag(i)
 				}
 			 }
 		  }

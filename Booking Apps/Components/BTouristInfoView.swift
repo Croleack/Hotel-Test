@@ -16,17 +16,11 @@ struct BTouristInfoView: View {
 	   self.viewModel = viewModel
     }
     
-    var totalAmount: Int {
-	   let tourPrice = viewModel.bookingData?.tourPrice ?? 0
-	   let fuelCharge = viewModel.bookingData?.fuelCharge ?? 0
-	   let serviceCharge = viewModel.bookingData?.serviceCharge ?? 0
-	   return tourPrice + fuelCharge + serviceCharge
-    }
-    
     var body: some View {
 	   
 	   VStack(alignment: .leading, spacing: 20) {
 		  VStack {
+			 
 			 HStack {
 				Text("Тур")
 				    .foregroundColor(Color("PaleGray"))
@@ -49,7 +43,7 @@ struct BTouristInfoView: View {
 				Text("К оплате")
 				    .foregroundColor(Color("PaleGray"))
 				Spacer()
-				Text("\(totalAmount)₽")
+				Text("\(viewModel.totalAmount)₽")
 				    .foregroundColor(.blue)
 			 }
 		  }
@@ -57,7 +51,7 @@ struct BTouristInfoView: View {
 		  NavigationLink(
 			 destination: BPaidView(),
 			 label: {
-				Text("Оплатить \(totalAmount)₽")
+				Text("Оплатить \(viewModel.totalAmount)₽")
 				    .font(.headline)
 				    .foregroundColor(.white)
 				    .frame(maxWidth: .infinity)
