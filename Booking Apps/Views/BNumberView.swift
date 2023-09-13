@@ -11,20 +11,20 @@ struct BNumberView: View {
     @ObservedObject var viewModel: BNumberViewModel
     @EnvironmentObject var coordinator: BCoordinator
     
-//MARK: - init
+    //MARK: - init
     init(viewModel: BNumberViewModel) {
-        self.viewModel = viewModel
+	   self.viewModel = viewModel
     }
     
     var body: some View {
-        VStack {
-            BRoomDetailView(rooms: viewModel.roomData?.rooms)
-        }
+	   VStack {
+		  BRoomDetailView(rooms: viewModel.roomData?.rooms)
+	   }
     }
 }
 struct BNumberView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = BNumberViewModel()
-        return BNumberView(viewModel: viewModel)
+	   let viewModel = BNumberViewModel()
+	   return BNumberView(viewModel: viewModel)
     }
 }

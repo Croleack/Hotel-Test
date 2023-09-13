@@ -16,31 +16,31 @@ class BBookingViewModel: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
     
     init() {
-        fetchBookingData()
+	   fetchBookingData()
     }
     
     func fetchBookingData() {
-        
-        guard let url = URL(string: "https://run.mocky.io/v3/e8868481-743f-4eb2-a0d7-2bc4012275c8")
-        else {
-            return
-        }
-        
-        URLSession.shared.dataTaskPublisher(for: url)
-            .map(\.data)
-            .decode(type: BookingData.self, decoder: JSONDecoder())
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    print("error \(error)")
-                }
-            }) { [weak self] bookingData in
-                self?.bookingData = bookingData
-            }
-            .store(in: &cancellables)
+	   
+	   guard let url = URL(string: "https://run.mocky.io/v3/e8868481-743f-4eb2-a0d7-2bc4012275c8")
+	   else {
+		  return
+	   }
+	   
+	   URLSession.shared.dataTaskPublisher(for: url)
+		  .map(\.data)
+		  .decode(type: BookingData.self, decoder: JSONDecoder())
+		  .receive(on: DispatchQueue.main)
+		  .sink(receiveCompletion: { completion in
+			 switch completion {
+			 case .finished:
+				break
+			 case .failure(let error):
+				print("error \(error)")
+			 }
+		  }) { [weak self] bookingData in
+			 self?.bookingData = bookingData
+		  }
+		  .store(in: &cancellables)
     }
 }
 
