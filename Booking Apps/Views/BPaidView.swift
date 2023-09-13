@@ -12,15 +12,16 @@ struct BPaidView: View {
     
     var body: some View {
 	   
-	   VStack(spacing:10) {
+	   VStack(spacing:20) {
+		  Spacer()
 		  Text("🎉")
 			 .font(.custom("MyCustomFont", size: 70))
 		  Text("Ваш заказ принят в работу")
+		  
 		  Text(generateOrderConfirmationText())
 			 .foregroundColor(Color("PaleGray"))
 			 .multilineTextAlignment(.center)
-		  
-		  
+		  Spacer()
 		  NavigationLink(
 			 destination: BHotelView(viewModel: BHotelViewModel()),
 			 label: {
@@ -33,6 +34,7 @@ struct BPaidView: View {
 				    .cornerRadius(8)
 			 }
 		  )
+		  Spacer()
 	   }
 	   .navigationBarItems(leading: Text("Заказ оплачен"))
 	   
