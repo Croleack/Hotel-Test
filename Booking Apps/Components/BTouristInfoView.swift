@@ -17,9 +17,9 @@ struct BTouristInfoView: View {
     }
     
     var totalAmount: Int {
-	   let tourPrice = viewModel.bookingData?.tour_price ?? 0
-	   let fuelCharge = viewModel.bookingData?.fuel_charge ?? 0
-	   let serviceCharge = viewModel.bookingData?.service_charge ?? 0
+	   let tourPrice = viewModel.bookingData?.tourPrice ?? 0
+	   let fuelCharge = viewModel.bookingData?.fuelCharge ?? 0
+	   let serviceCharge = viewModel.bookingData?.serviceCharge ?? 0
 	   return tourPrice + fuelCharge + serviceCharge
     }
     
@@ -31,19 +31,19 @@ struct BTouristInfoView: View {
 				Text("Тур")
 				    .foregroundColor(Color("PaleGray"))
 				Spacer()
-				Text("\(viewModel.bookingData?.tour_price ?? 0)₽")
+				Text("\(viewModel.bookingData?.tourPrice ?? 0)₽")
 			 }
 			 HStack {
 				Text("Топливный сбор")
 				    .foregroundColor(Color("PaleGray"))
 				Spacer()
-				Text("\(viewModel.bookingData?.fuel_charge ?? 0)₽")
+				Text("\(viewModel.bookingData?.fuelCharge ?? 0)₽")
 			 }
 			 HStack {
 				Text("Сервисный сбор")
 				    .foregroundColor(Color("PaleGray"))
 				Spacer()
-				Text("\(viewModel.bookingData?.service_charge ?? 0)₽")
+				Text("\(viewModel.bookingData?.serviceCharge ?? 0)₽")
 			 }
 			 HStack {
 				Text("К оплате")

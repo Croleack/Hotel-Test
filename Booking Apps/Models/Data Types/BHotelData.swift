@@ -10,13 +10,32 @@ import Foundation
 struct BHotelData: Codable {
     let id: Int
     let name: String
-    let adress: String
-    let minimal_price: Int
-    let price_for_it: String
+    let address: String
+    let minimalPrice: Int
+    let priceForIt: String
     let rating: Int
-    let rating_name: String
-    let image_urls: [String]
-    let about_the_hotel: BAboutTheHotel
+    let ratingName: String
+    let imageUrls: [String]
+    let aboutTheHotel: BAboutTheHotel
+    
+    
+    enum CodingKeys: String, CodingKey {
+	   case id
+	   case name
+	   case address = "adress"
+	   case minimalPrice = "minimal_price"
+	   case priceForIt = "price_for_it"
+	   case rating
+	   case ratingName = "rating_name"
+	   case imageUrls = "image_urls"
+	   case aboutTheHotel = "about_the_hotel"
+    }
 }
+
+struct BAboutTheHotel: Codable {
+    let description: String
+    let peculiarities: [String]
+}
+
 
 

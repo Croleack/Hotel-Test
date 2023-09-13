@@ -15,22 +15,22 @@ struct BHotelView: View {
 	   ScrollView(.vertical) {
 		  VStack(alignment: .leading, spacing: 8) {
 			 
-			 makeSliderView(imageUrls: viewModel.hotelData?.image_urls ?? [])
+			 makeSliderView(imageUrls: viewModel.hotelData?.imageUrls ?? [])
 			 
-			 makeHotelRating(rating: viewModel.hotelData?.rating ?? 0, ratingName: viewModel.hotelData?.rating_name ?? "")
+			 makeHotelRating(rating: viewModel.hotelData?.rating ?? 0, ratingName: viewModel.hotelData?.ratingName ?? "")
 			 
 			 makeHotelLabel(name: viewModel.hotelData?.name ?? "")
 			 Spacer()
-			 makeHotelAddress(address: viewModel.hotelData?.adress ?? "")
+			 makeHotelAddress(address: viewModel.hotelData?.address ?? "")
 			 Spacer()
-			 makeHotelPrice(priceHotel: viewModel.hotelData?.minimal_price ?? 100000,
-						 priceHotelForIt: viewModel.hotelData?.price_for_it.lowercased() ?? "")
+			 makeHotelPrice(priceHotel: viewModel.hotelData?.minimalPrice ?? 100000,
+						 priceHotelForIt: viewModel.hotelData?.priceForIt.lowercased() ?? "")
 			 VStack() {
 				makeHotelInfo()
 				
-				makeHotelPeculiarities(viewModel.hotelData?.about_the_hotel.peculiarities ?? [])
+				makeHotelPeculiarities(viewModel.hotelData?.aboutTheHotel.peculiarities ?? [])
 				
-				makeHotelDescription(hotelDescriptione: viewModel.hotelData?.about_the_hotel.description ?? "")
+				makeHotelDescription(hotelDescriptione: viewModel.hotelData?.aboutTheHotel.description ?? "")
 				
 				createNonClickableButton(title: "Удобства", subtitle: "Самое необходимое", imageName: "face.smiling")
 				createNonClickableButton(title: "Что включено", subtitle: "Самое необходимое", imageName: "checkmark.square")

@@ -18,7 +18,7 @@ struct BRoomDetailView: View {
 				
 				VStack(alignment: .leading, spacing: 12) {
 				    ForEach(rooms ?? []) { room in
-					   makeSliderView(imageUrls: room.image_urls)
+					   makeSliderView(imageUrls: room.imageUrls)
 					   
 					   makeRoomLabel(room.name)
 					   
@@ -26,7 +26,7 @@ struct BRoomDetailView: View {
 					   
 					   makeDisabledButton()
 					   
-					   makePriceBlock(price: room.price, period: room.price_per.lowercased())
+					   makePriceBlock(price: room.price, period: room.pricePer.lowercased())
 					   
 					   makeRoomDetailButton()
 				    }

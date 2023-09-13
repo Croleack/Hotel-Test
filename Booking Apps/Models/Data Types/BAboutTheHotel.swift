@@ -7,7 +7,4 @@
 
 import Foundation
 
-struct BAboutTheHotel: Codable {
-    let description: String
-    let peculiarities: [String]
-}
+

@@ -13,7 +13,6 @@
 		E92E1B8D2AA0FC1D00BB130E /* BHotelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E1B8C2AA0FC1D00BB130E /* BHotelData.swift */; };
 		E92E1B8F2AA0FD1C00BB130E /* BRoomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E1B8E2AA0FD1C00BB130E /* BRoomData.swift */; };
 		E92E1B912AA0FDAC00BB130E /* BBookingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E1B902AA0FDAC00BB130E /* BBookingData.swift */; };
-		E92E1B932AA0FE8800BB130E /* BAboutTheHotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E1B922AA0FE8800BB130E /* BAboutTheHotel.swift */; };
 		E92E1BA32AA102B300BB130E /* BHotelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E1BA22AA102B300BB130E /* BHotelViewModel.swift */; };
 		E92E1BA52AA1031E00BB130E /* BNumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E1BA42AA1031E00BB130E /* BNumberViewModel.swift */; };
 		E92E1BA72AA1034800BB130E /* BBookingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E1BA62AA1034800BB130E /* BBookingViewModel.swift */; };
@@ -37,7 +36,6 @@
 		E92E1B8C2AA0FC1D00BB130E /* BHotelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHotelData.swift; sourceTree = "<group>"; };
 		E92E1B8E2AA0FD1C00BB130E /* BRoomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRoomData.swift; sourceTree = "<group>"; };
 		E92E1B902AA0FDAC00BB130E /* BBookingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBookingData.swift; sourceTree = "<group>"; };
-		E92E1B922AA0FE8800BB130E /* BAboutTheHotel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAboutTheHotel.swift; sourceTree = "<group>"; };
 		E92E1BA22AA102B300BB130E /* BHotelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BHotelViewModel.swift; sourceTree = "<group>"; };
 		E92E1BA42AA1031E00BB130E /* BNumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BNumberViewModel.swift; sourceTree = "<group>"; };
 		E92E1BA62AA1034800BB130E /* BBookingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBookingViewModel.swift; sourceTree = "<group>"; };
@@ -115,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				E92E1B8C2AA0FC1D00BB130E /* BHotelData.swift */,
-				E92E1B922AA0FE8800BB130E /* BAboutTheHotel.swift */,
 				E92E1B8E2AA0FD1C00BB130E /* BRoomData.swift */,
 				E92E1B902AA0FDAC00BB130E /* BBookingData.swift */,
 			);
@@ -243,7 +240,6 @@
 				E92E1BAF2AA1053400BB130E /* BBookingView.swift in Sources */,
 				E92E1B912AA0FDAC00BB130E /* BBookingData.swift in Sources */,
 				E92E1BA72AA1034800BB130E /* BBookingViewModel.swift in Sources */,
-				E92E1B932AA0FE8800BB130E /* BAboutTheHotel.swift in Sources */,
 				E9CAB5242AA45E51006889B6 /* BTouristInfoView.swift in Sources */,
 				E92E1BB12AA105A000BB130E /* BPaidView.swift in Sources */,
 				E92E1BAB2AA103BE00BB130E /* BHotelView.swift in Sources */,

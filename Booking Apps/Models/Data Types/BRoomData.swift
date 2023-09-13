@@ -15,8 +15,17 @@ struct BRoom: Codable, Identifiable {
     let id: Int
     let name: String
     let price: Int
-    let price_per: String
+    let pricePer: String
     let peculiarities: [String]
-    let image_urls: [String]
+    let imageUrls: [String]
+    
+    enum CodingKeys: String, CodingKey {
+		  case id
+		  case name
+		  case price
+		  case pricePer = "price_per"
+		  case peculiarities
+		  case imageUrls = "image_urls"
+    }
 }
 

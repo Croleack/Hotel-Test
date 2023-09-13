@@ -16,18 +16,18 @@ struct BBookingView: View {
 	   ScrollView(.vertical) {
 		  VStack(alignment: .leading, spacing: 10) {
 			 
-			 makeHorating(horating: viewModel.bookingData?.horating ?? 0, ratingName: viewModel.bookingData?.rating_name ?? "")
+			 makeHorating(horating: viewModel.bookingData?.horating ?? 0, ratingName: viewModel.bookingData?.ratingName ?? "")
 			 
-			 makeHotelName(name: viewModel.bookingData?.hotel_name ?? "")
+			 makeHotelName(name: viewModel.bookingData?.hotelName ?? "")
 			 
-			 makeHotelAddressTwo(address: viewModel.bookingData?.hotel_adress ?? "")
+			 makeHotelAddressTwo(address: viewModel.bookingData?.hotelAdress ?? "")
 			 
 			 VStack(alignment: .leading, spacing: 8) {
 				makeLabelWithValue(label: "Вылет из", value: viewModel.bookingData?.departure, trailingPadding: 50)
-				makeLabelWithValue(label: "Страна, город", value: viewModel.bookingData?.arrival_country, trailingPadding: 9)
-				makeLabelWithValue(label: "Даты", value: "\(viewModel.bookingData?.tour_date_start ?? "") - \(viewModel.bookingData?.tour_date_stop ?? "")", trailingPadding: 79)
-				makeLabelWithValue(label: "Кол-во ночей", value: "\(viewModel.bookingData?.number_of_nights ?? 0) ночей", trailingPadding: 15)
-				makeLabelWithValue(label: "Отель", value: viewModel.bookingData?.hotel_name, trailingPadding: 74)
+				makeLabelWithValue(label: "Страна, город", value: viewModel.bookingData?.arrivalCountry, trailingPadding: 9)
+				makeLabelWithValue(label: "Даты", value: "\(viewModel.bookingData?.tourDateStart ?? "") - \(viewModel.bookingData?.tourDateStop ?? "")", trailingPadding: 79)
+				makeLabelWithValue(label: "Кол-во ночей", value: "\(viewModel.bookingData?.numberOfNights ?? 0) ночей", trailingPadding: 15)
+				makeLabelWithValue(label: "Отель", value: viewModel.bookingData?.hotelName, trailingPadding: 74)
 				makeLabelWithValue(label: "Номер", value: viewModel.bookingData?.room, trailingPadding: 66)
 				makeLabelWithValue(label: "Питание", value: viewModel.bookingData?.nutrition, trailingPadding: 51)
 			 }
