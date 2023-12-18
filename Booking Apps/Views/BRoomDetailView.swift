@@ -9,7 +9,6 @@ import SwiftUI
 
 struct BRoomDetailView: View {
     let rooms: [BRoom]?
-    @EnvironmentObject var coordinator: BCoordinator
     
     var body: some View {
 	   ScrollView {

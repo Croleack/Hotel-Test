@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct BPaidView: View {
-    @EnvironmentObject var coordinator: BCoordinator
     
     var body: some View {
 	   

@@ -20,12 +20,27 @@
 		E92E1BAD2AA1050C00BB130E /* BNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E1BAC2AA1050C00BB130E /* BNumberView.swift */; };
 		E92E1BAF2AA1053400BB130E /* BBookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E1BAE2AA1053400BB130E /* BBookingView.swift */; };
 		E92E1BB12AA105A000BB130E /* BPaidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E1BB02AA105A000BB130E /* BPaidView.swift */; };
-		E92E1BB32AA10A9300BB130E /* BCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E1BB22AA10A9300BB130E /* BCoordinator.swift */; };
 		E92E1BB82AA3228200BB130E /* BBImageSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E1BB72AA3228200BB130E /* BBImageSliderView.swift */; };
 		E92E1BD42AA3716E00BB130E /* BRoomDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E1BD32AA3716E00BB130E /* BRoomDetailView.swift */; };
 		E952E33E2AA785CB0015582A /* BValidationBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E952E33D2AA785CB0015582A /* BValidationBlock.swift */; };
 		E952E35A2AA7A2D40015582A /* BValidationTelephone.swift in Sources */ = {isa = PBXBuildFile; fileRef = E952E3592AA7A2D40015582A /* BValidationTelephone.swift */; };
 		E9CAB5242AA45E51006889B6 /* BTouristInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CAB5232AA45E51006889B6 /* BTouristInfoView.swift */; };
+		E9D20F342B304BD600109FAD /* SF-Pro-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9D20F332B304BD600109FAD /* SF-Pro-Display-Black.otf */; };
+		E9D20F362B304BEA00109FAD /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9D20F352B304BEA00109FAD /* SF-Pro-Display-Bold.otf */; };
+		E9D20F382B304BF200109FAD /* SF-Pro-Display-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9D20F372B304BF200109FAD /* SF-Pro-Display-Heavy.otf */; };
+		E9D20F3A2B304BFE00109FAD /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9D20F392B304BFE00109FAD /* SF-Pro-Display-Light.otf */; };
+		E9D20F3C2B304C0600109FAD /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9D20F3B2B304C0600109FAD /* SF-Pro-Display-Medium.otf */; };
+		E9D20F3E2B304C0D00109FAD /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9D20F3D2B304C0D00109FAD /* SF-Pro-Display-Regular.otf */; };
+		E9D20F402B304C1200109FAD /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9D20F3F2B304C1200109FAD /* SF-Pro-Display-Semibold.otf */; };
+		E9D20F422B304C1900109FAD /* SF-Pro-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9D20F412B304C1900109FAD /* SF-Pro-Display-Thin.otf */; };
+		E9D20F442B304C1E00109FAD /* SF-Pro-Display-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9D20F432B304C1E00109FAD /* SF-Pro-Display-Ultralight.otf */; };
+		E9D20F492B3053CB00109FAD /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D20F482B3053CB00109FAD /* NetworkError.swift */; };
+		E9D20F4D2B3056FB00109FAD /* NetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D20F4C2B3056FB00109FAD /* NetworkDispatcher.swift */; };
+		E9D20F4F2B30577F00109FAD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D20F4E2B30577F00109FAD /* NetworkManager.swift */; };
+		E9D20F532B3069CC00109FAD /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D20F522B3069CC00109FAD /* Fonts.swift */; };
+		E9D20F562B307F2A00109FAD /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D20F552B307F2A00109FAD /* Page.swift */; };
+		E9D20F592B307F6F00109FAD /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D20F582B307F6F00109FAD /* CoordinatorView.swift */; };
+		E9D20F5C2B307FAB00109FAD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D20F5B2B307FAB00109FAD /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,12 +58,27 @@
 		E92E1BAC2AA1050C00BB130E /* BNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BNumberView.swift; sourceTree = "<group>"; };
 		E92E1BAE2AA1053400BB130E /* BBookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBookingView.swift; sourceTree = "<group>"; };
 		E92E1BB02AA105A000BB130E /* BPaidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPaidView.swift; sourceTree = "<group>"; };
-		E92E1BB22AA10A9300BB130E /* BCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCoordinator.swift; sourceTree = "<group>"; };
 		E92E1BB72AA3228200BB130E /* BBImageSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBImageSliderView.swift; sourceTree = "<group>"; };
 		E92E1BD32AA3716E00BB130E /* BRoomDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BRoomDetailView.swift; sourceTree = "<group>"; };
 		E952E33D2AA785CB0015582A /* BValidationBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BValidationBlock.swift; sourceTree = "<group>"; };
 		E952E3592AA7A2D40015582A /* BValidationTelephone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BValidationTelephone.swift; sourceTree = "<group>"; };
 		E9CAB5232AA45E51006889B6 /* BTouristInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTouristInfoView.swift; sourceTree = "<group>"; };
+		E9D20F332B304BD600109FAD /* SF-Pro-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Black.otf"; sourceTree = "<group>"; };
+		E9D20F352B304BEA00109FAD /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
+		E9D20F372B304BF200109FAD /* SF-Pro-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Heavy.otf"; sourceTree = "<group>"; };
+		E9D20F392B304BFE00109FAD /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
+		E9D20F3B2B304C0600109FAD /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
+		E9D20F3D2B304C0D00109FAD /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
+		E9D20F3F2B304C1200109FAD /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
+		E9D20F412B304C1900109FAD /* SF-Pro-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Thin.otf"; sourceTree = "<group>"; };
+		E9D20F432B304C1E00109FAD /* SF-Pro-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Ultralight.otf"; sourceTree = "<group>"; };
+		E9D20F482B3053CB00109FAD /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		E9D20F4C2B3056FB00109FAD /* NetworkDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDispatcher.swift; sourceTree = "<group>"; };
+		E9D20F4E2B30577F00109FAD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E9D20F522B3069CC00109FAD /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		E9D20F552B307F2A00109FAD /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		E9D20F582B307F6F00109FAD /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
+		E9D20F5B2B307FAB00109FAD /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,12 +111,14 @@
 		E92E1B7A2AA0FAB500BB130E /* Booking Apps */ = {
 			isa = PBXGroup;
 			children = (
+				E9D20F452B304D7A00109FAD /* API */,
 				E92E1B972AA1004200BB130E /* Views */,
 				E92E1B962AA1001F00BB130E /* ViewModels */,
 				E92E1BB42AA267A000BB130E /* Components */,
 				E92E1B892AA0FB8300BB130E /* Models */,
 				E92E1B812AA0FAB700BB130E /* Preview Content */,
 				E95BF12A2AA8BBA40098C486 /* Coordinator */,
+				E9D20F322B304A3F00109FAD /* Fonts */,
 				E92E1B7B2AA0FAB500BB130E /* Booking_AppsApp.swift */,
 				E92E1B7F2AA0FAB700BB130E /* Assets.xcassets */,
 			);
@@ -155,9 +187,62 @@
 		E95BF12A2AA8BBA40098C486 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				E92E1BB22AA10A9300BB130E /* BCoordinator.swift */,
+				E9D20F5A2B307F9600109FAD /* ViewModel */,
+				E9D20F572B307F4C00109FAD /* View */,
+				E9D20F542B307F1900109FAD /* Models */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		E9D20F322B304A3F00109FAD /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E9D20F522B3069CC00109FAD /* Fonts.swift */,
+				E9D20F432B304C1E00109FAD /* SF-Pro-Display-Ultralight.otf */,
+				E9D20F412B304C1900109FAD /* SF-Pro-Display-Thin.otf */,
+				E9D20F3F2B304C1200109FAD /* SF-Pro-Display-Semibold.otf */,
+				E9D20F3D2B304C0D00109FAD /* SF-Pro-Display-Regular.otf */,
+				E9D20F3B2B304C0600109FAD /* SF-Pro-Display-Medium.otf */,
+				E9D20F392B304BFE00109FAD /* SF-Pro-Display-Light.otf */,
+				E9D20F372B304BF200109FAD /* SF-Pro-Display-Heavy.otf */,
+				E9D20F352B304BEA00109FAD /* SF-Pro-Display-Bold.otf */,
+				E9D20F332B304BD600109FAD /* SF-Pro-Display-Black.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		E9D20F452B304D7A00109FAD /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E9D20F4E2B30577F00109FAD /* NetworkManager.swift */,
+				E9D20F4C2B3056FB00109FAD /* NetworkDispatcher.swift */,
+				E9D20F482B3053CB00109FAD /* NetworkError.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		E9D20F542B307F1900109FAD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E9D20F552B307F2A00109FAD /* Page.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E9D20F572B307F4C00109FAD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E9D20F582B307F6F00109FAD /* CoordinatorView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E9D20F5A2B307F9600109FAD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E9D20F5B2B307FAB00109FAD /* Coordinator.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,8 +303,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9D20F422B304C1900109FAD /* SF-Pro-Display-Thin.otf in Resources */,
 				E92E1B832AA0FAB700BB130E /* Preview Assets.xcassets in Resources */,
+				E9D20F382B304BF200109FAD /* SF-Pro-Display-Heavy.otf in Resources */,
+				E9D20F3E2B304C0D00109FAD /* SF-Pro-Display-Regular.otf in Resources */,
 				E92E1B802AA0FAB700BB130E /* Assets.xcassets in Resources */,
+				E9D20F362B304BEA00109FAD /* SF-Pro-Display-Bold.otf in Resources */,
+				E9D20F3A2B304BFE00109FAD /* SF-Pro-Display-Light.otf in Resources */,
+				E9D20F402B304C1200109FAD /* SF-Pro-Display-Semibold.otf in Resources */,
+				E9D20F342B304BD600109FAD /* SF-Pro-Display-Black.otf in Resources */,
+				E9D20F442B304C1E00109FAD /* SF-Pro-Display-Ultralight.otf in Resources */,
+				E9D20F3C2B304C0600109FAD /* SF-Pro-Display-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,11 +326,16 @@
 			files = (
 				E952E35A2AA7A2D40015582A /* BValidationTelephone.swift in Sources */,
 				E92E1B8D2AA0FC1D00BB130E /* BHotelData.swift in Sources */,
+				E9D20F4D2B3056FB00109FAD /* NetworkDispatcher.swift in Sources */,
+				E9D20F4F2B30577F00109FAD /* NetworkManager.swift in Sources */,
 				E92E1BA32AA102B300BB130E /* BHotelViewModel.swift in Sources */,
 				E92E1BA52AA1031E00BB130E /* BNumberViewModel.swift in Sources */,
+				E9D20F562B307F2A00109FAD /* Page.swift in Sources */,
 				E952E33E2AA785CB0015582A /* BValidationBlock.swift in Sources */,
+				E9D20F5C2B307FAB00109FAD /* Coordinator.swift in Sources */,
+				E9D20F532B3069CC00109FAD /* Fonts.swift in Sources */,
 				E92E1BB82AA3228200BB130E /* BBImageSliderView.swift in Sources */,
-				E92E1BB32AA10A9300BB130E /* BCoordinator.swift in Sources */,
+				E9D20F592B307F6F00109FAD /* CoordinatorView.swift in Sources */,
 				E92E1BAF2AA1053400BB130E /* BBookingView.swift in Sources */,
 				E92E1B912AA0FDAC00BB130E /* BBookingData.swift in Sources */,
 				E92E1BA72AA1034800BB130E /* BBookingViewModel.swift in Sources */,
@@ -247,6 +346,7 @@
 				E92E1BAD2AA1050C00BB130E /* BNumberView.swift in Sources */,
 				E92E1BD42AA3716E00BB130E /* BRoomDetailView.swift in Sources */,
 				E92E1B8F2AA0FD1C00BB130E /* BRoomData.swift in Sources */,
+				E9D20F492B3053CB00109FAD /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

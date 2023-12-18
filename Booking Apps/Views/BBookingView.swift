@@ -9,7 +9,6 @@ import Combine
 
 struct BBookingView: View {
     @ObservedObject var viewModel: BBookingViewModel
-    @EnvironmentObject var coordinator: BCoordinator
     
     
     var body: some View {

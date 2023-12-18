@@ -9,7 +9,6 @@ import SwiftUI
 
 struct BHotelView: View {
     @ObservedObject var viewModel: BHotelViewModel
-    @EnvironmentObject var coordinator: BCoordinator
     
     var body: some View {
 	   ScrollView(.vertical) {

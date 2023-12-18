@@ -9,7 +9,6 @@ import SwiftUI
 
 struct BNumberView: View {
     @ObservedObject var viewModel: BNumberViewModel
-    @EnvironmentObject var coordinator: BCoordinator
     
     //MARK: - init
     init(viewModel: BNumberViewModel) {

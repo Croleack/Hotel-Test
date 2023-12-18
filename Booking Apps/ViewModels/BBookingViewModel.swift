@@ -21,33 +21,22 @@ class BBookingViewModel: ObservableObject {
     }
     
     private var cancellables: Set<AnyCancellable> = []
+    private let networkDispatcher: NetworkDispatcher
     
-    init() {
+    init(networkDispatcher: NetworkDispatcher = NetworkDispatcher()) {
+	   self.networkDispatcher = networkDispatcher
 	   fetchBookingData()
     }
     
     func fetchBookingData() {
-	   
-	   guard let url = URL(string: "https://run.mocky.io/v3/e8868481-743f-4eb2-a0d7-2bc4012275c8")
-	   else {
-		  return
-	   }
-//https://run.mocky.io/v3/8b532701-709e-4194-a41c-1a903af00195
-	   URLSession.shared.dataTaskPublisher(for: url)
-		  .map(\.data)
-		  .decode(type: BookingData.self, decoder: JSONDecoder())
-		  .receive(on: DispatchQueue.main)
-		  .sink(receiveCompletion: { completion in
-			 switch completion {
-			 case .finished:
-				break
-			 case .failure(let error):
-				print("error \(error)")
-			 }
-		  }) { [weak self] bookingData in
+	   networkDispatcher.fetchBooking { [weak self] result in
+		  switch result {
+		  case .success(let bookingData):
 			 self?.bookingData = bookingData
+		  case .failure(let error):
+			 print("\(error.localizedDescription)")
 		  }
-		  .store(in: &cancellables)
+	   }
     }
 }
 

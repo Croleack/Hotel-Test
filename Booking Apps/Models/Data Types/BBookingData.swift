@@ -27,7 +27,7 @@ struct BookingData: Codable {
     enum CodingKeys: String, CodingKey {
 	   case id
 	   case hotelName = "hotel_name"
-	   case hotelAdress = "hotel_address"
+	   case hotelAdress = "hotel_adress"
 	   case horating
 	   case ratingName = "rating_name"
 	   case departure
