@@ -32,7 +32,7 @@ class BBookingViewModel: ObservableObject {
 	   else {
 		  return
 	   }
-	   
+//https://run.mocky.io/v3/8b532701-709e-4194-a41c-1a903af00195
 	   URLSession.shared.dataTaskPublisher(for: url)
 		  .map(\.data)
 		  .decode(type: BookingData.self, decoder: JSONDecoder())
