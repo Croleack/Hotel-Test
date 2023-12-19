@@ -11,46 +11,53 @@ struct BRoomDetailView: View {
     let rooms: [BRoom]?
     
     var body: some View {
-	   ScrollView {
-		  VStack {
-			 ScrollView(.vertical) {
-				
-				VStack(alignment: .leading, spacing: 12) {
-				    ForEach(rooms ?? []) { room in
-					   makeSliderView(imageUrls: room.imageUrls)
-					   
-					   makeRoomLabel(room.name)
-					   
-					   makePeculiarities(room.peculiarities)
-					   
-					   makeDisabledButton()
-					   
-					   makePriceBlock(price: room.price, period: room.pricePer.lowercased())
-					   
-					   makeRoomDetailButton()
-				    }
-				}
-			 }.navigationTitle("Детали номера")
-		  }.padding(.leading, 14)
+	   ScrollView(.vertical) {
 		  
+		  ZStack {
+			 Rectangle()
+				.foregroundColor(.white)
+			 
+			 VStack(alignment: .leading) {
+				ForEach(rooms ?? []) { room in
+				    makeSliderView(imageUrls: room.imageUrls)
+				    
+				    makeRoomLabel(room.name)
+					   .padding(.top, 8)
+				    
+				    makePeculiarities(room.peculiarities)
+					   .padding(.top, 13)
+				    
+				    makeDisabledButton()
+					   .padding(.top, 8)
+				    
+				    makePriceBlock(price: room.price, period: room.pricePer.lowercased())
+					   .padding(.top, 16)
+				    
+				    makeRoomDetailButton()
+					   .padding(.top, 16)
+				}
+			 }
+		  }
+		  .padding(.top, 8)
+		  .padding(.horizontal, 16)
 	   }
+	   .navigationTitle("Номер")
+	   .navigationBarTitleDisplayMode(.inline)
     }
     
     
-    //MARK: - funcs
+    //MARK: - Functions
     
     func makeSliderView(imageUrls: [String]) -> AnyView {
 	   AnyView(
 		  BSliderView(imageUrls: imageUrls)
-			 .frame(minHeight: 240, maxHeight: 400)
-			 .cornerRadius(32)
 	   )
     }
     
     func makeRoomLabel(_ name: String) -> AnyView {
 	   AnyView(
 		  Text(name)
-			 .font(.title)
+			 .font(.titleCustom)
 	   )
     }
     
@@ -59,8 +66,8 @@ struct BRoomDetailView: View {
 		  HStack {
 			 ForEach(peculiarities, id: \.self) { peculiarity in
 				Text(peculiarity)
-				    .padding(.leading)
 				    .foregroundColor(Color("PaleGray"))
+				    .font(.bodyCustom)
 			 }
 		  }
 	   )
@@ -69,13 +76,14 @@ struct BRoomDetailView: View {
     func makeDisabledButton() -> AnyView {
 	   AnyView(
 		  Button(action: {}) {
-			 HStack {
+			 HStack(spacing: 12) {
 				Text("Подробнее о номере")
-				Image(systemName: "chevron.right")
-				    .font(.subheadline)
-				    .foregroundColor(Color.blue)
-				    .disabled(true)
+				Image("ic-rightBlue")
+				    .frame(width: 6, height: 12)
 			 }
+			 .font(.bodyCustom)
+			 .foregroundColor(Color("DeepBlue"))
+			 .disabled(true)
 		  }
 	   )
     }
@@ -84,10 +92,10 @@ struct BRoomDetailView: View {
 	   AnyView(
 		  HStack {
 			 Text("\(price)₽")
-				.font(.title)
+				.font(.largeTitleCustom)
 				.fontWeight(.bold)
 			 Text("\(period)")
-				.font(.footnote)
+				.font(.bodyCustom)
 				.foregroundColor(Color("PaleGray"))
 		  }
 	   )
@@ -99,12 +107,12 @@ struct BRoomDetailView: View {
 			 destination: BBookingView(viewModel: BBookingViewModel()),
 			 label: {
 				Text("Выбрать номер")
-				    .font(.headline)
+				    .font(.semiboldBodyCustom)
 				    .foregroundColor(.white)
-				    .frame(maxWidth: .infinity)
-				    .frame(height: 50)
+				    .frame(maxWidth: 500)
+				    .frame(height: 48)
 				    .background(Color.blue)
-				    .cornerRadius(8)
+				    .cornerRadius(15)
 			 }
 		  )
 	   )

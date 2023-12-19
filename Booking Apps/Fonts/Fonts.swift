@@ -7,40 +7,37 @@
 
 import SwiftUI
 
-enum Fonts {
-    case largeTitle
-    case title
-    case subtitle
-    case headline
-    case subheadline
-    case body
-    case semiboldBody
-    case link
-    case caption
-    case tiny
+extension Font {
     
-    var font: Font {
-	   switch self {
-	   case .largeTitle:
-		  return Font.custom("SFProDisplay-Semibold", fixedSize: 30)
-	   case .title:
-		  return Font.custom("SFProDisplay-Medium", fixedSize: 22)
-	   case .subtitle:
-		  return Font.custom("SFProDisplay-Medium", fixedSize: 20)
-	   case .headline:
-		  return Font.custom("SFProDisplay-Medium", fixedSize: 16)
-	   case .subheadline:
-		  return Font.custom("SFProDisplay-Regular", fixedSize: 17)
-	   case .body:
-		  return Font.custom("SFProDisplay-Regular", fixedSize: 16)
-	   case .semiboldBody:
-		  return Font.custom("SFProDisplay-Semibold", fixedSize: 16)
-	   case .link:
-		  return Font.custom("SFProDisplay-Medium", fixedSize: 14)
-	   case .caption:
-		  return Font.custom("SFProDisplay-Regular", fixedSize: 14)
-	   case .tiny:
-		  return Font.custom("SFProDisplay-Regular", fixedSize: 12)
-	   }
+    static var largeTitleCustom: Font {
+	   return Font.custom("SF-Pro-Display-Black", size: 30)
     }
+    static var semiboldBodyCustom: Font {
+	   return Font.custom("SF-Pro-Display-Semibold", size: 16)
+    }
+    static var titleCustom: Font {
+	   return Font.custom("SF-Pro-Display-Medium", size: 22)
+    }
+    static var subtitleCustom: Font {
+	   return Font.custom("SF-Pro-Display-Medium", size: 20)
+    }
+    static var headlineCustom: Font {
+	   return Font.custom("SF-Pro-Display-Medium", size: 16)
+    }
+    static var linkCustom: Font {
+	   return Font.custom("SF-Pro-Display-Medium", size: 14)
+    }
+    static var subHeadlineCustom: Font {
+	   return Font.custom("SF-Pro-Display-Regular", size: 17)
+    }
+    static var bodyCustom: Font {
+	   return Font.custom("SF-Pro-Display-Regular", size: 16)
+    }
+    static var captionCustom: Font {
+	   return Font.custom("SF-Pro-Display-Regular", size: 14)
+    }
+    static var tinyCustom: Font {
+	   return Font.custom("SF-Pro-Display-Regular", size: 12)
+    }
+
 }

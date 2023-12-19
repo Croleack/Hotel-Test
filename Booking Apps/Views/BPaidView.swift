@@ -35,9 +35,8 @@ struct BPaidView: View {
 		  )
 		  Spacer()
 	   }
-	   .navigationBarItems(leading: Text("Заказ оплачен"))
-	   
-	   
+	   .navigationTitle("Заказ оплачен")
+	   .navigationBarTitleDisplayMode(.inline)
     }
     
     

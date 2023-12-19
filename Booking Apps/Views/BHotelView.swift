@@ -12,49 +12,67 @@ struct BHotelView: View {
     
     var body: some View {
 	   ScrollView(.vertical) {
-		  VStack(alignment: .leading, spacing: 8) {
+		  
+		  ZStack {
+			 Rectangle()
+				.foregroundColor(.white)
 			 
-			 makeSliderView(imageUrls: viewModel.hotelData?.imageUrls ?? [])
-			 
-			 makeHotelRating(rating: viewModel.hotelData?.rating ?? 0, ratingName: viewModel.hotelData?.ratingName ?? "")
-			 
-			 makeHotelLabel(name: viewModel.hotelData?.name ?? "")
-			 Spacer()
-			 makeHotelAddress(address: viewModel.hotelData?.address ?? "")
-			 Spacer()
-			 makeHotelPrice(priceHotel: viewModel.hotelData?.minimalPrice ?? 100000,
-						 priceHotelForIt: viewModel.hotelData?.priceForIt.lowercased() ?? "")
-			 VStack() {
-				makeHotelInfo()
+			 VStack(alignment: .leading) {
 				
-				makeHotelPeculiarities(viewModel.hotelData?.aboutTheHotel.peculiarities ?? [])
+				makeSliderView(imageUrls: viewModel.hotelData?.imageUrls ?? [])
 				
-				makeHotelDescription(hotelDescriptione: viewModel.hotelData?.aboutTheHotel.description ?? "")
+				makeHotelRating(rating: viewModel.hotelData?.rating ?? 0, ratingName: viewModel.hotelData?.ratingName ?? "")
+				    .padding(.top, 16)
 				
-				createNonClickableButton(title: "Удобства", subtitle: "Самое необходимое", imageName: "face.smiling")
-				createNonClickableButton(title: "Что включено", subtitle: "Самое необходимое", imageName: "checkmark.square")
-				createNonClickableButton(title: "Что не включено", subtitle: "Самое необходимое", imageName: "multiply.square")
+				makeHotelLabel(name: viewModel.hotelData?.name ?? "")
+				    .padding(.top, 8)
+				makeHotelAddress(address: viewModel.hotelData?.address ?? "")
+				    .padding(.top, 8)
+				makeHotelPrice(priceHotel: viewModel.hotelData?.minimalPrice ?? 100000,
+							priceHotelForIt: viewModel.hotelData?.priceForIt.lowercased() ?? "")
+				.padding(.top, 16)
 				
-			 }
-			 
-			 NavigationLink(
-				destination: BNumberView(viewModel: BNumberViewModel()),
-				label: {
-				    Text("К выбору номера")
-					   .font(.headline)
-					   .foregroundColor(.white)
-					   .frame(maxWidth: .infinity)
-					   .frame(height: 50)
-					   .background(Color.blue)
-					   .cornerRadius(8)
+				VStack() {
+				    makeHotelInfo()
+				    
+				    makeHotelPeculiarities(viewModel.hotelData?.aboutTheHotel.peculiarities ?? [])
+					   .padding(.top, 16)
+				    
+				    makeHotelDescription(hotelDescriptione: viewModel.hotelData?.aboutTheHotel.description ?? "")
+					   .padding(.top, 12)
+					   .padding(.trailing, 16)
+				    
+				    createNonClickableButton(title: "Удобства", subtitle: "Самое необходимое", imageName: "ic-smiley")
+					   .padding(.top, 16)
+				    createNonClickableButton(title: "Что включено", subtitle: "Самое необходимое", imageName: "checkmark.square")
+					   .padding(.top, 20)
+				    createNonClickableButton(title: "Что не включено", subtitle: "Самое необходимое", imageName: "multiply.square")
+					   .padding(.top, 20)
+				    
 				}
-			 )
+				
+				NavigationLink(
+				    destination: BNumberView(viewModel: BNumberViewModel()),
+				    label: {
+					   Text("К выбору номера")
+						  .font(.headline)
+						  .foregroundColor(.white)
+						  .frame(maxWidth: .infinity)
+						  .frame(height: 50)
+						  .background(Color.blue)
+						  .cornerRadius(8)
+				    }
+				)
+				.padding(.top, 40)
+			 }
 		  }
-	   } .padding()
-		  .navigationBarTitle(Text("Отель"))
+		  .padding(.top, 8)
+		  .padding(.horizontal, 16)
+	   }
+	   .navigationTitle("Отель")
+	   .navigationBarTitleDisplayMode(.inline)
     }
 }
-
 
 struct BHotelView_Previews: PreviewProvider {
     static var previews: some View {
@@ -62,25 +80,25 @@ struct BHotelView_Previews: PreviewProvider {
     }
 }
 
-//MARK: - Funcs
+//MARK: - Functions
 
 func makeSliderView(imageUrls: [String]) -> AnyView {
     AnyView(
 	   BSliderView(imageUrls: imageUrls)
-		  .frame(minHeight: 240, maxHeight: 400)
     )
 }
 
 func makeHotelRating(rating: Int, ratingName: String) -> some View {
     ZStack {
-	   RoundedRectangle(cornerRadius: 8)
+	   RoundedRectangle(cornerRadius: 5)
 		  .fill(Color("PaleYellow"))
-		  .frame(width: 200, height: 25)
+		  .frame(width: 149, height: 29)
 	   HStack {
-		  Image(systemName: "star.fill")
+		  Image("ic-star")
 			 .foregroundColor(Color("RichYellow"))
 		  Text("\(rating) \(ratingName)")
 			 .foregroundColor(Color("RichYellow"))
+			 .font(.headlineCustom)
 	   }
     }
 }
@@ -88,8 +106,7 @@ func makeHotelRating(rating: Int, ratingName: String) -> some View {
 func makeHotelLabel(name: String) -> AnyView {
     AnyView(
 	   Text(name)
-		  .font(.title)
-		  .fontWeight(.semibold)
+		  .font(.titleCustom)
     )
 }
 
@@ -97,82 +114,92 @@ func makeHotelAddress(address: String)-> AnyView {
     AnyView(
 	   Button(action: {}) {
 		  Text(address)
-			 .font(.subheadline)
-			 .foregroundColor(Color.blue)
+			 .font(.linkCustom)
+			 .foregroundColor(Color("DeepBlue"))
 	   }
-		  .frame(alignment: .leading)
     )
 }
 
 func makeHotelPrice(priceHotel: Int, priceHotelForIt: String) -> some View {
     HStack {
-	   Text("От: \(priceHotel)₽")
-		  .font(.title)
-		  .fontWeight(.bold)
+	   Text("от \(priceHotel) ₽")
+		  .font(.largeTitleCustom)
 	   Text(priceHotelForIt)
-		  .font(.footnote)
+		  .font(.semiboldBodyCustom)
 		  .foregroundColor(Color("PaleGray"))
-	   
-    }.padding(.trailing, 30)
+		  .baselineOffset(-10)
+    }
 }
 
 func makeHotelInfo() -> some View {
     Text("Об отеле")
-	   .font(.headline)
+	   .font(.titleCustom)
 	   .frame(maxWidth: .infinity, alignment: .leading)
 }
 
-
-func  makeHotelPeculiarities(_ peculiarities: [String]) -> some View {
-    let chunkedPeculiarities = peculiarities.chunkedArray(into: 2)
-    
-    return VStack {
-	   ForEach(chunkedPeculiarities, id: \.self) { pair in
-		  HStack(spacing: 4) {
-			 ForEach(pair, id: \.self) { peculiarity in
-				Text(peculiarity)
-				    .font(.subheadline)
-				    .padding()
-				    .foregroundColor(Color("PaleGray"))
-				    .cornerRadius(8)
-			 }
-			 Spacer()
+func makeHotelPeculiarities(_ peculiarities: [String]) -> some View {
+    return ZStack {
+	   Rectangle()
+		  .foregroundColor(.green)
+		  .frame(width: 295, height: 198)
+	   
+	   VStack(spacing: 4) {
+		  ForEach(peculiarities, id: \.self) { peculiarity in
+			 Text(peculiarity)
+				.font(.bodyCustom)
+				.padding(.vertical, 8)
+				.foregroundColor(Color("PaleGray"))
+				.frame(alignment: .leading)
 		  }
 	   }
     }
+    
 }
 
-extension Array {
-    func chunkedArray(into size: Int) -> [[Element]] {
-	   return stride(from: 0, to: count, by: size).map {
-		  Array(self[$0..<Swift.min($0 + size, count)])
-	   }
-    }
-}
+//extension Array {
+//    func chunkedArray(into size: Int) -> [[Element]] {
+//	   return stride(from: 0, to: count, by: size).map {
+//		  Array(self[$0..<Swift.min($0 + size, count)])
+//	   }
+//    }
+//}
 
 
 func makeHotelDescription(hotelDescriptione: String) -> AnyView {
     AnyView(
 	   Text(hotelDescriptione)
+		  .font(.bodyCustom)
     )
 }
 
 
 func createNonClickableButton(title: String, subtitle: String, imageName: String) -> some View {
     HStack {
-	   Image(systemName: imageName)
-		  .foregroundColor(Color.black)
+	   if imageName == "ic-smiley" {
+		  Image("ic-smiley")
+			 .resizable()
+			 .frame(width: 20, height: 20)
+			 .foregroundColor(Color.black)
+	   } else {
+		  Image(systemName: imageName)
+			 .foregroundColor(Color.black)
+			 .frame(width: 20, height: 20)
+	   }
 	   
 	   VStack(alignment: .leading) {
 		  Text(title)
+			 .font(.semiboldBodyCustom)
 		  Text(subtitle)
 			 .foregroundColor(Color("PaleGray"))
+			 .font(.captionCustom)
 	   }
+	   
 	   Spacer()
-	   Image(systemName: "chevron.right")
+	   
+	   Image("ic-rightArrow")
 		  .foregroundColor(.black)
+		  .frame(width: 6, height: 12)
     }
-    .padding(.horizontal, 10)
-    .padding(.vertical, 10)
+    .padding(.horizontal, 16)
 }
 
