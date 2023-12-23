@@ -28,8 +28,8 @@ final class Coordinator: ObservableObject {
 	   switch page {
 	   case .hotel:
 		  BHotelView(viewModel: BHotelViewModel())
-	   case .rooms:
-		  BRoomDetailView(rooms: [])
+	   case .rooms(let hotelName):
+		  BNumberView(viewModel: BNumberViewModel(hotelName: hotelName))
 	   case .booking:
 		  BBookingView(viewModel: BBookingViewModel())
 	   case .transaction:

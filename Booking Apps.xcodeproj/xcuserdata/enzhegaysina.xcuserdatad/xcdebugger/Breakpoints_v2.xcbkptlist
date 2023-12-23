@@ -30,8 +30,8 @@
             filePath = "Booking Apps/Views/BRoomDetailView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "makeRoomLabel(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -66,6 +66,70 @@
             endingLineNumber = "80"
             landmarkName = "areAllTouristsFilled()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5931C1CF-3AA9-4DA3-B3A8-26C3230F1C4C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Booking Apps/Views/BNumberView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "5931C1CF-3AA9-4DA3-B3A8-26C3230F1C4C - 7a99c052f9526a72"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; Booking_Apps.BBackButton in Booking_Apps.BNumberView.body.getter : some"
+                  moduleName = "Booking Apps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/enzhegaysina/Documents/GitHub/hotel/Booking%20Apps/Hotel-Test/Booking%20Apps/Views/BNumberView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "228">
+               </Location>
+               <Location
+                  uuid = "5931C1CF-3AA9-4DA3-B3A8-26C3230F1C4C - 7a99c052f9526a72"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; Booking_Apps.BBackButton in Booking_Apps.BNumberView.body.getter : some"
+                  moduleName = "Booking Apps"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/enzhegaysina/Documents/GitHub/hotel/Booking%20Apps/Hotel-Test/Booking%20Apps/Views/BNumberView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "204">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "62CD0680-9AF2-426D-AAAE-3DC77C6DE03D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Booking Apps/BBooking/Views/BTouristCellView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
