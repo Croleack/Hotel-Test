@@ -282,17 +282,9 @@
 		E94854852B34BDB500D53962 /* Paid */ = {
 			isa = PBXGroup;
 			children = (
-				E94854872B34BDDB00D53962 /* Views */,
-			);
-			path = Paid;
-			sourceTree = "<group>";
-		};
-		E94854872B34BDDB00D53962 /* Views */ = {
-			isa = PBXGroup;
-			children = (
 				E92E1BB02AA105A000BB130E /* PaidView.swift */,
 			);
-			path = Views;
+			path = Paid;
 			sourceTree = "<group>";
 		};
 		E94854892B34C05900D53962 /* Services */ = {

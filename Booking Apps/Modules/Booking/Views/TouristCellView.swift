@@ -12,18 +12,18 @@ struct TouristCellView: View {
     @StateObject var viewModel: TouristCellViewModel
     
     var body: some View {
-	   VStack(spacing: 0) {
+	   VStack(spacing: .zero) {
 		  HStack {
-			 Text(viewModel.nameTourists[viewModel.index] + " турист")
+			 Text(viewModel.nameTourists[viewModel.index] + Constants.addTourist)
 			 Spacer()
 			 Button {
 				viewModel.isShow.toggle()
 			 } label: {
 				if viewModel.isShow {
-				    Image("ic-up")
+				    Image(Constants.arrowUp)
 					   .frame(width: 6, height: 12)
 				} else {
-				    Image("ic-down")
+				    Image(Constants.arrowDown)
 					   .frame(width: 6, height: 12)
 				}
 			 }
@@ -48,3 +48,14 @@ struct TouristCellView: View {
     }
 }
 
+// MARK: - Constants
+
+fileprivate extension TouristCellView {
+    enum Constants {
+	   
+	   static let addTourist = " турист"
+	   static let arrowUp = "ic-up"
+	   static let arrowDown = "ic-down"
+    
+    }
+}
