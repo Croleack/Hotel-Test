@@ -12,6 +12,8 @@ struct RoomDetailView: View {
     @EnvironmentObject var coordinator: Coordinator
     let rooms: [Room]?
     
+    @State private var buttonCount: Int = .zero
+    
     var body: some View {
 	   ScrollView(.vertical) {
 		  
@@ -32,6 +34,9 @@ struct RoomDetailView: View {
 				)
 				
 				makeRoomDetailButton()
+				    .onAppear {
+					   buttonCount += 1
+				    }
 			 }
 		  }
 	   }
@@ -121,6 +126,7 @@ private extension RoomDetailView {
 		  .foregroundColor(Color(.deepBlue))
 		  .disabled(true)
 		  .padding(.leading, Constants.padLeadingDisabledBut)
+		  .padding(.top, 16)
 	   }
     }
     
@@ -155,6 +161,7 @@ private extension RoomDetailView {
 			 }
 			 .padding(.top, Constants.padTopRoomDet)
 			 .padding(.horizontal, Constants.padHorizontGeneral)
+			 .padding(.bottom, buttonCount == 0 ? 0 : 28)
 		  }
     }
 }

@@ -4,7 +4,6 @@
 //
 //  Created by Enzhe Gaysina on 19.12.2023.
 //
-
 import Foundation
 
 final class MailValidationService {
@@ -12,8 +11,17 @@ final class MailValidationService {
     static let shared = MailValidationService()
     
     func checkMail(mail: String) throws {
-	   guard mail != "" else { throw ValidationError.emptyMail}
-	   guard isMail(mail: mail) else { throw ValidationError.notMail }
+	   guard !mail.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+		  throw ValidationError.emptyMail
+	   }
+	   
+	   guard mail.count <= 255 else {
+		  throw ValidationError.emptyMail
+	   }
+	   
+	   guard isMail(mail: mail) else {
+		  throw ValidationError.notMail
+	   }
     }
     
     func isMail(mail: String) -> Bool {
@@ -22,6 +30,7 @@ final class MailValidationService {
 	   return emailPrefix.evaluate(with: mail)
     }
 }
+
 
 
 

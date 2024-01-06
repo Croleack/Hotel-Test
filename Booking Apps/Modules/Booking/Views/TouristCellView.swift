@@ -21,30 +21,53 @@ struct TouristCellView: View {
 			 } label: {
 				if viewModel.isShow {
 				    Image(Constants.arrowUp)
-					   .frame(width: 6, height: 12)
 				} else {
 				    Image(Constants.arrowDown)
-					   .frame(width: 6, height: 12)
 				}
 			 }
+			 .frame(width: Constants.frameImageWidth,
+				   height: Constants.frameImageHeight
+			 )
 		  }
-		  .font(Font.custom(.baseFont, size: 22)
+		  .padding(.trailing, Constants.padTrailingNameTourists)
+		  .padding(.bottom, Constants.padBottomNameTourists)
+		  .font(Font.custom(.baseFont, size: Constants.fontText)
 			 .weight(.medium))
 		  if viewModel.isShow {
-			 VStack(spacing: 8) {
-				BookingTextFieldView(viewModel: viewModel.name)
-				BookingTextFieldView(viewModel: viewModel.surname)
-				BookingTextFieldView(viewModel: viewModel.dateOfBirth)
-				BookingTextFieldView(viewModel: viewModel.citizenship)
-				BookingTextFieldView(viewModel: viewModel.passportNumber)
-				BookingTextFieldView(viewModel: viewModel.validityPeriodOfPassport)
+			 VStack(spacing: Constants.spacingBookingText) {
+				BookingTextFieldView(viewModel: viewModel.name,
+								 keyboardType: .default
+				)
+				.cornerRadius(Constants.cornerRadiusText)
+				BookingTextFieldView(viewModel: viewModel.surname,
+								 keyboardType: .default
+				)
+				.cornerRadius(Constants.cornerRadiusText)
+				BookingTextFieldView(viewModel: viewModel.dateOfBirth,
+								 keyboardType: .numbersAndPunctuation
+				)
+				.cornerRadius(Constants.cornerRadiusText)
+				BookingTextFieldView(viewModel: viewModel.citizenship,
+								 keyboardType: .default
+				)
+				.cornerRadius(Constants.cornerRadiusText)
+				BookingTextFieldView(viewModel: viewModel.passportNumber,
+								 keyboardType: .asciiCapableNumberPad
+				)
+				.cornerRadius(Constants.cornerRadiusText)
+				BookingTextFieldView(viewModel: viewModel.validityPeriodOfPassport,
+								 keyboardType: .numbersAndPunctuation
+				)
+				.cornerRadius(Constants.cornerRadiusText)
 			 }
-			 .cornerRadius(10)
 		  }
 	   }
 	   .background(Color.white)
 	   .animation(.easeInOut, value: viewModel.isShow)
-	   .padding(.bottom, 24)
+	   .padding(.bottom, Constants.padBottomBookingText)
+	   .onTapGesture {
+		  UIApplication.shared.endEditing()
+	   }
     }
 }
 
@@ -56,6 +79,18 @@ fileprivate extension TouristCellView {
 	   static let addTourist = " турист"
 	   static let arrowUp = "ic-up"
 	   static let arrowDown = "ic-down"
-    
+	   
+	   static let padTrailingNameTourists = 10.0
+	   static let padBottomNameTourists = 20.0
+	   static let padBottomBookingText = 24.0
+	   
+	   static let cornerRadiusText = 12.0
+	   
+	   static let fontText = 22.0
+	   
+	   static let frameImageHeight = 12.0
+	   static let frameImageWidth = 6.0
+	   
+	   static let spacingBookingText = 8.0
     }
 }

@@ -8,10 +8,8 @@
 import Foundation
 
 enum ValidationError: Error {
-    
     case emptyMail
     case notMail
     case emptyPhone
     case notPhone
-    
 }

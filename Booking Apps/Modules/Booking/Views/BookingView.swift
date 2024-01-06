@@ -5,12 +5,12 @@
 //  Created by Enzhe Gaysina on 31.08.2023.
 //
 import SwiftUI
-import Combine
 
 struct BookingView: View {
     
     @EnvironmentObject var coordinator: Coordinator
     @StateObject var viewModel = BookingViewModel()
+    @State private var isKeyboardVisible = false
     
     var body: some View {
 	   ScrollView(.vertical) {
@@ -29,8 +29,9 @@ struct BookingView: View {
 			 makeBookingData()
 			 
 			 makeBuyerInformation()
-			 
+				.padding(.bottom, Constants.padBottomBuyerInformation)
 			 makePhoneTextField()
+				.padding(.bottom, Constants.padBottomPhoneTextField)
 			 
 			 makeMailTextField()
 			 
@@ -46,12 +47,13 @@ struct BookingView: View {
 			 
 			 ButtonTransactionView(viewModel: viewModel.buttonTransaction) {
 				viewModel.checkTouristsInfoAndNavigate()
+				hideKeyboard()
 			 }
 			 .alert(Constants.alertText, isPresented: $viewModel.isShowErrorAlert) {
 				Button(Constants.alertButton) { }
 			 }
 		  }
-		  .padding(.horizontal, 16)
+		  .padding(.horizontal, Constants.padHorizontGeneral)
 		  .navigationDestination(isPresented: $viewModel.isActiveTransactionLink) {
 			 coordinator.build(page: .transaction)
 		  }
@@ -71,85 +73,88 @@ private extension BookingView {
     
     func makeHorating(horating: Int, ratingName: String) -> some View {
 	   ZStack {
-		  RoundedRectangle(cornerRadius: 5)
+		  RoundedRectangle(cornerRadius: Constants.corHorating)
 			 .fill(Color(.paleYellow))
-			 .frame(width: 149, height: 29)
+			 .frame(width: Constants.frameRectangleHoratingWidth,
+				   height: Constants.frameRectangleHoratingHeight)
 		  HStack {
 			 Image(Constants.ratingStar)
 			 Text("\(horating) \(ratingName)")
 				.foregroundColor(Color(.richYellow))
-				.font(Font.custom(.baseFont, size: 16)
+				.font(Font.custom(.baseFont, size: Constants.fontHorating)
 				    .weight(.medium))
 		  }
 	   }
-	   .padding(.top, 24)
+	   .padding(.top, Constants.padTopHorating)
     }
     
     func makeHotelName(name: String) -> some View {
-		  Text(name)
-			 .font(Font.custom(.baseFont, size: 22)
-				.weight(.medium))
-			 .padding(.top, 8)
+	   Text(name)
+		  .font(Font.custom(.baseFont, size: Constants.fontHotelName)
+			 .weight(.medium))
+		  .padding(.top, Constants.padTopHotelName)
     }
     
     func makeHotelAdressTwo(adress: String)-> some View {
-		  Button(action: {}) {
-			 Text(adress)
-				.font(Font.custom(.baseFont, size: 14)
-				    .weight(.medium))
-				.foregroundColor(Color(.deepBlue))
-				.padding(.top, 8)
-				.padding(.bottom, 40)
-		  }
+	   Button(action: {}) {
+		  Text(adress)
+			 .font(Font.custom(.baseFont, size: Constants.fontHotelAdress)
+				.weight(.medium))
+			 .foregroundColor(Color(.deepBlue))
+			 .padding(.top, Constants.padTopHotelAdress)
+			 .padding(.bottom, Constants.padBottomHotelAdress)
+	   }
     }
     
     func bookingDataCell(title: String, value: String) -> some View {
-	   HStack(alignment: .top, spacing: 40) {
+	   HStack(alignment: .top, spacing: Constants.spacingBookingData) {
 		  Text(title)
-			 .font(Font.custom(.baseFont, size: 16))
+			 .font(Font.custom(.baseFont, size: Constants.fontBookingData))
 			 .foregroundColor(Color(.paleGray))
 			 .fixedSize()
-			 .frame(width: 110, alignment: .leading)
+			 .frame(width: Constants.frameBookingDataWidth, alignment: .leading)
 		  Text(value)
-			 .font(Font.custom(.baseFont, size: 16))
+			 .font(Font.custom(.baseFont, size: Constants.fontBookingData))
 	   }
-	   .modifier(TwoColumnsViewModifier(size: 16, lineHeight: 120, weight: .regular))
+	   .modifier(TwoColumnsViewModifier(size: Constants.fontBookingData,
+								 lineHeight: Constants.lineHeight,
+								 weight: .regular))
     }
     
     func makeBuyerInformation() -> some View {
 	   Text(Constants.buyerInformation)
-		  .font(Font.custom(.baseFont, size: 22)
+		  .font(Font.custom(.baseFont, size: Constants.fontBuyerInformation)
 			 .weight(.medium))
-		  .padding(.top, 40)
+		  .padding(.top, Constants.padTopBuyerInformation)
     }
     
     func makeSendingCheck() -> some View {
 	   Text(Constants.sendingCheck)
-		  .font(Font.custom(.baseFont, size: 14))
+		  .font(Font.custom(.baseFont, size: Constants.fontSendingCheck))
 		  .foregroundColor(Color(.paleGray))
-		  .padding(.top, 8)
-		  .padding(.bottom, 40)
+		  .padding(.top, Constants.padTopSendingCheck)
+		  .padding(.bottom, Constants.padBottomSendingCheck)
     }
     
     func makeBlockWithPrices(tourPrice: Int, fuelCharge: Int, serviceCharge: Int) -> some View {
-	   VStack(spacing: 16) {
+	   VStack(spacing: Constants.spacingBlockWith) {
 		  HStack {
 			 Text(Constants.tour)
-				.font(Font.custom(.baseFont, size: 16))
+				.font(Font.custom(.baseFont, size: Constants.fontBlockWithPrices))
 				.foregroundColor(Color(.paleGray))
 			 Spacer()
 			 Text("\(tourPrice) ₽")
 		  }
 		  HStack {
 			 Text(Constants.fuelSurcharge)
-				.font(Font.custom(.baseFont, size: 16))
+				.font(Font.custom(.baseFont, size: Constants.fontBlockWithPrices))
 				.foregroundColor(Color(.paleGray))
 			 Spacer()
 			 Text("\(fuelCharge) ₽")
 		  }
 		  HStack {
 			 Text(Constants.serviceFee)
-				.font(Font.custom(.baseFont, size: 16))
+				.font(Font.custom(.baseFont, size: Constants.fontBlockWithPrices))
 				.foregroundColor(Color(.paleGray))
 			 Spacer()
 			 Text("\(serviceCharge) ₽")
@@ -157,32 +162,38 @@ private extension BookingView {
 		  
 		  HStack {
 			 Text(Constants.toPay)
-				.font(Font.custom(.baseFont, size: 16))
+				.font(Font.custom(.baseFont, size: Constants.fontBlockWithPrices))
 				.foregroundColor(Color(.paleGray))
 			 Spacer()
 			 Text("\(viewModel.totalAmount) ₽")
-				.font(Font.custom(.baseFont, size: 16)
+				.font(Font.custom(.baseFont, size: Constants.fontBlockWithPrices)
 				    .weight(.medium))
 				.foregroundColor(Color(.deepBlue))
 		  }
 	   }
-	   .padding(.top, 24)
+	   .padding(.top, Constants.padTopBlockWithPrices)
     }
     
     func makePhoneTextField() -> some View {
 	   PhoneTextFieldView(viewModel: viewModel.phone)
-		  .padding(.top, 20)
+		  .cornerRadius(Constants.corTextField)
+		  .onTapGesture {
+			 UIApplication.shared.endEditing()
+		  }
     }
     
     func makeMailTextField() -> some View {
 	   BookingTextFieldView(viewModel: viewModel.mail) { (editing) in
 		  viewModel.setupEditingMail(editing)
 	   }
-	   .padding(.top, 8)
+	   .cornerRadius(Constants.corTextField)
+	   .onTapGesture {
+		  UIApplication.shared.endEditing()
+	   }
     }
     
     func makeBookingData() -> some View {
-	   VStack(alignment: .leading, spacing: 16) {
+	   VStack(alignment: .leading, spacing: Constants.spacingBooking) {
 		  bookingDataCell(title: Constants.departure,
 					   value: viewModel.bookingData?.departure ?? .defString)
 		  bookingDataCell(title: Constants.countryCity,
@@ -203,10 +214,10 @@ private extension BookingView {
     
     private func makeTouristsInfo() -> some View {
 	   VStack {
-		  ForEach(0 ..< viewModel.tourists.count, id: \.self) { index in
+		  ForEach(.zero ..< viewModel.tourists.count, id: \.self) { index in
 			 TouristCellView(viewModel: viewModel.toutistsCells[index])
 		  }
-		  if viewModel.tourists.count < 10 {
+		  if viewModel.tourists.count < Constants.maximumTourists {
 			 VStack {
 				HStack {
 				    Text(Constants.addTourist)
@@ -216,10 +227,12 @@ private extension BookingView {
 					   viewModel.tourists.append(Tourist.clearTourist)
 				    } label: {
 					   Image(Constants.addTouristImage)
-						  .frame(width: 32, height: 32)
+						  .frame(width: Constants.frameAddTouristImage,
+							    height: Constants.frameAddTouristImage
+						  )
 				    }
 				}
-				.font(Font.custom(.baseFont, size: 22)
+				.font(Font.custom(.baseFont, size: Constants.fontTouristsInfo)
 				    .weight(.medium))
 				.frame(maxWidth: .infinity, alignment: .leading)
 			 }
@@ -227,7 +240,6 @@ private extension BookingView {
 	   }
     }
 }
-
 // MARK: - Constants
 
 fileprivate extension BookingView {
@@ -254,5 +266,40 @@ fileprivate extension BookingView {
 	   static let addTouristImage = "ic-addTourist"
 	   static let nights = "ночей"
 	   
+	   static let padHorizontGeneral = 16.0
+	   static let padBottomBuyerInformation = 20.0
+	   static let padBottomPhoneTextField = 8.0
+	   static let padTopHorating = 24.0
+	   static let padTopHotelName = 8.0
+	   static let padTopHotelAdress = 8.0
+	   static let padBottomHotelAdress = 40.0
+	   static let padTopSendingCheck = 8.0
+	   static let padBottomSendingCheck = 40.0
+	   static let padTopBlockWithPrices = 24.0
+	   static let padTopBuyerInformation = 40.0
+	   
+	   static let corHorating = 5.0
+	   static let corTextField = 12.0
+	   
+	   static let fontHorating = 16.0
+	   static let fontHotelName = 22.0
+	   static let fontHotelAdress = 14.0
+	   static let fontBookingData = 16.0
+	   static let fontBuyerInformation = 22.0
+	   static let fontSendingCheck = 14.0
+	   static let fontBlockWithPrices = 16.0
+	   static let fontTouristsInfo = 22.0
+	   
+	   static let frameRectangleHoratingHeight = 29.0
+	   static let frameRectangleHoratingWidth = 149.0
+	   static let frameBookingDataWidth = 110.0
+	   static let frameAddTouristImage = 32.0
+	   
+	   static let spacingBookingData = 40.0
+	   static let spacingBlockWith = 16.0
+	   static let spacingBooking = 16.0
+	   
+	   static let lineHeight = 120.0
+	   static let maximumTourists = 10
     }
 }

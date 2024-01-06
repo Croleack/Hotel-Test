@@ -21,17 +21,30 @@ struct ButtonTransactionView: View {
 			 Text(viewModel.title)
 				.foregroundColor(Color.white)
 				.font(.custom(.baseFont,
-						    size: CGFloat(16))
+						    size: CGFloat(Constants.fontText))
 				    .weight(.medium))
 				.frame(maxWidth: .infinity)
 				.padding(.vertical)
 				.background(Color(.deepBlue))
-				.cornerRadius(15)
+				.cornerRadius(Constants.corRadius)
 		  }
 		  Spacer()
 	   }
-	   .padding(.top, 22)
-	   .padding(.horizontal, -12)
+	   .padding(.top, Constants.padTop)
+	   .padding(.bottom, Constants.padBot)
+	   .padding(.horizontal, Constants.padHor)
     }
 }
 
+// MARK: - Constants
+
+fileprivate extension ButtonTransactionView {
+    enum Constants {
+	   
+	   static let padTop = 22.0
+	   static let padBot = 28.0
+	   static let padHor = -12.0
+	   static let corRadius = 15.0
+	   static let fontText = 16.0
+    }
+}

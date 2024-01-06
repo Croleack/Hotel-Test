@@ -6,7 +6,8 @@
 //
 
 import Foundation
-///- so that the application does not crash when the third value does not arrive on the second screen makePeculiarities
+///- so that the application does not crash when the third value does not arrive
+/// on the second screen makePeculiarities
 extension Collection {
     subscript(safe index: Index) -> Element? {
 	   return indices.contains(index) ? self[index] : nil

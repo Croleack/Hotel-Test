@@ -22,3 +22,7 @@ struct TwoColumnsViewModifier: ViewModifier {
 		  .padding(.vertical, padding)
     }
 }
+
+
+
+

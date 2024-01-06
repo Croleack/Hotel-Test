@@ -11,27 +11,41 @@ struct BookingTextFieldView: View {
     
     @StateObject var viewModel: MailValidationViewModel
     var completion: ((Bool)->())?
+    var keyboardType: UIKeyboardType = .emailAddress
     
     var body: some View {
 	   VStack(alignment: .leading) {
 		  if !viewModel.text.isEmpty {
 			 Text(viewModel.placeholder)
-				.font(Font.custom(.baseFont, size: 12))
+				.font(Font.custom(.baseFont, size: Constants.fontPlaceholderPrimary))
 				.foregroundColor(.secondary)
-				.cornerRadius(10)
+				.cornerRadius(Constants.cornerRadius)
 		  }
-		  HStack(spacing: 4) {
+		  HStack(spacing: Constants.spacing) {
 			 TextField(viewModel.placeholder, text: $viewModel.text) { (editing) in
 				completion?(editing)
 			 }
-			 .font(Font.custom(.baseFont, size: 16))
+			 .keyboardType(keyboardType)
+			 .font(Font.custom(.baseFont, size: Constants.fontPlaceholderActive))
 		  }
 	   }
-	   .padding(.horizontal, 16)
-	   .frame(height: 52)
-	   .cornerRadius(10)
+	   .padding(.horizontal, Constants.paddingHorizontal)
+	   .frame(height: Constants.frameHeight)
 	   .background(viewModel.isValid ? Color(.lightGray) : Color(.error))
 	   .animation(.easeInOut, value: viewModel.isValid)
     }    
 }
 
+// MARK: - Constants
+
+fileprivate extension BookingTextFieldView {
+    enum Constants {
+	   
+	   static let fontPlaceholderPrimary = 12.0
+	   static let fontPlaceholderActive = 16.0
+	   static let paddingHorizontal = 16.0
+	   static let frameHeight = 52.0
+	   static let cornerRadius = 10.0
+	   static let spacing = 4.0
+    }
+}

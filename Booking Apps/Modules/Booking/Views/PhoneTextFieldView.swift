@@ -16,28 +16,28 @@ struct PhoneTextFieldView: View {
 	   VStack(alignment: .leading) {
 		  if !viewModel.text.isEmpty {
 			 Text(viewModel.placeholder)
-				.font(Font.custom(.baseFont, size: 12))
+				.font(Font.custom(.baseFont, size: Constants.fontPlaceholderPrimary))
 				.foregroundColor(.secondary)
 		  }
 		  HStack {
 			 if !viewModel.text.isEmpty {
-				Text("+7")
-				    .font(Font.custom(.baseFont, size: 16))
+				Text(Constants.startingDigit)
+				    .font(Font.custom(.baseFont, size: Constants.fontPlaceholderActive))
 				    .foregroundColor(!viewModel.text.isEmpty ? Color.black : .secondary)
 			 }
 			 TextField(viewModel.placeholder, text: $viewModel.text) { (editing) in
 				viewModel.setupEditingPhone(editing)
-				    
+				
 			 }
-			 .font(Font.custom(.baseFont, size: 16))
+			 .font(Font.custom(.baseFont, size: Constants.fontPlaceholderActive))
+			 .keyboardType(.phonePad)
 			 .onChange(of: viewModel.text, perform: { oldValue in
-				viewModel.text = format(with: "(XXX) XXX-XX-XX", phone: oldValue)
+				viewModel.text = format(with: Constants.numberFormat, phone: oldValue)
 			 })
 		  }
 	   }
-	   .padding(.horizontal, 16)
-	   .frame(height: 52)
-	   .cornerRadius(40)
+	   .padding(.horizontal, Constants.paddingHorizontal)
+	   .frame(height: Constants.frameHeight)
 	   .background(viewModel.isValidPhone ? Color(.lightGray) : Color(.error))
 	   .animation(.easeInOut, value: viewModel.isValidPhone)
     }
@@ -46,7 +46,7 @@ struct PhoneTextFieldView: View {
 extension PhoneTextFieldView {
     
     func format(with mask: String, phone: String) -> String {
-	   let numbers = phone.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+	   let numbers = phone.replacingOccurrences(of: Constants.numberValid, with: "", options: .regularExpression)
 	   var result = ""
 	   var index = numbers.startIndex
 	   for ch in mask where index < numbers.endIndex {
@@ -58,5 +58,23 @@ extension PhoneTextFieldView {
 		  }
 	   }
 	   return result
+    }
+}
+
+// MARK: - Constants
+
+fileprivate extension PhoneTextFieldView {
+    enum Constants {
+	   
+	   static let fontPlaceholderPrimary = 12.0
+	   static let fontPlaceholderActive = 16.0
+	   static let frameImageHeight = 12.0
+	   static let frameImageWidth = 6.0
+	   static let frameHeight = 52.0
+	   static let paddingHorizontal = 16.0
+	   
+	   static let numberFormat = "(XXX) XXX-XX-XX"
+	   static let numberValid = "[^0-9]"
+	   static let startingDigit = "+7"
     }
 }
