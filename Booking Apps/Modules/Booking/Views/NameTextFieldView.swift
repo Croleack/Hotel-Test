@@ -1,20 +1,20 @@
 //
-//  BBookingTextField.swift
+//  NameTextFieldView.swift
 //  Booking Apps
 //
-//  Created by Enzhe Gaysina on 19.12.2023.
+//  Created by Enzhe Gaysina on 08.01.2024.
 //
 
 import SwiftUI
 
-struct BookingTextFieldView: View {
+struct NameTextFieldView: View {
     
-    @StateObject var viewModel: MailValidationViewModel
+    @StateObject var viewModel: NameValidationViewModel
     var completion: ((Bool)->())?
-    var keyboardType: UIKeyboardType = .emailAddress
+    var keyboardType: UIKeyboardType = .default
     
     var body: some View {
-	   VStack(alignment: .leading, spacing: .zero) {
+	   VStack(alignment: .leading) {
 		  if !viewModel.text.isEmpty {
 			 Text(viewModel.placeholder)
 				.font(Font.custom(.baseFont, size: Constants.fontPlaceholderPrimary))
@@ -25,27 +25,39 @@ struct BookingTextFieldView: View {
 				completion?(editing)
 			 }
 			 .font(Font.custom(.baseFont, size: Constants.fontPlaceholderActive))
-			 .keyboardType(keyboardType) 
+			 .keyboardType(keyboardType)
+			 .onChange(of: viewModel.text, perform: { newValue in
+				viewModel.text = format(text: newValue)
+			 })
 		  }
 	   }
 	   .padding(.horizontal, Constants.paddingHorizontal)
 	   .frame(height: Constants.frameHeight)
-	   .cornerRadius(Constants.cornerRadius)
-	   .background(viewModel.isValid ? Color(.lightGray) : Color(.error))
-	   .animation(.easeInOut, value: viewModel.isValid)
-    }    
+	   .background(viewModel.isValidName ? Color(.lightGray) : Color(.error))
+	   .animation(.easeInOut, value: viewModel.isValidName)
+    }
+}
+
+extension NameTextFieldView {
+    func format(text: String) -> String {
+	   let letters = text.replacingOccurrences(
+		  of: "[^a-zA-Zа-яА-Я]",
+		  with: "",
+		  options: .regularExpression
+	   )
+	   return letters
+    }
 }
 
 // MARK: - Constants
 
-fileprivate extension BookingTextFieldView {
+fileprivate extension NameTextFieldView {
     enum Constants {
 	   
 	   static let fontPlaceholderPrimary = 12.0
 	   static let fontPlaceholderActive = 16.0
-	   static let paddingHorizontal = 16.0
 	   static let frameHeight = 52.0
+	   static let paddingHorizontal = 16.0
 	   static let spacing = 4.0
-	   static let cornerRadius = 10.0
     }
 }

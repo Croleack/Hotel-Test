@@ -57,7 +57,6 @@ struct PaidView: View {
     }
 }
 
-
 // MARK: - Constants
 
 fileprivate extension PaidView {
@@ -65,7 +64,9 @@ fileprivate extension PaidView {
 	   
 	   static let fireworkImage = "ic-firework"
 	   static let orderAccepted = "Ваш заказ принят в работу"
-	   static let confirmationMessage = "Подтверждение заказа №\(Int.random(in: 1...999)) может занять некоторое время (от 1 часа до суток). Как только мы получим ответ от туроператора, вам на почту придет уведомление"
+	   static let confirmationMessage = "Подтверждение заказа №\(Int.random(in: 1...999)) может занять " +
+	   "некоторое время (от 1 часа до суток). Как только мы получим ответ от туроператора, вам на " +
+	   "почту придет уведомление"
 	   static let superText = "Супер!"
 	   static let orderPaid = "Заказ оплачен"
 	   

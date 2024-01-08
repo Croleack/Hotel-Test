@@ -26,9 +26,12 @@
 		E92E1BD42AA3716E00BB130E /* RoomDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E1BD32AA3716E00BB130E /* RoomDetailView.swift */; };
 		E948548F2B35744E00D53962 /* Extension + Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = E948548E2B35744E00D53962 /* Extension + Int.swift */; };
 		E94854912B35855200D53962 /* TwoColumnsViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94854902B35855200D53962 /* TwoColumnsViewModifier.swift */; };
-		E94F0AF42B3E1A5F00EAA92B /* Extension + collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94F0AF32B3E1A5F00EAA92B /* Extension + collection.swift */; };
+		E94F0AF42B3E1A5F00EAA92B /* Extension + Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94F0AF32B3E1A5F00EAA92B /* Extension + Collection.swift */; };
 		E94F0AFD2B3E912E00EAA92B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94F0AFC2B3E912E00EAA92B /* Colors.swift */; };
 		E961F7232B494C4500831558 /* Extension + View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961F7222B494C4500831558 /* Extension + View.swift */; };
+		E96813F52B4C06EE00F2D4FE /* NameValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96813F42B4C06EE00F2D4FE /* NameValidationService.swift */; };
+		E96813F72B4C076E00F2D4FE /* NameTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96813F62B4C076E00F2D4FE /* NameTextFieldView.swift */; };
+		E96813F92B4C07C300F2D4FE /* NameValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96813F82B4C07C300F2D4FE /* NameValidationViewModel.swift */; };
 		E978B96B2B31FFCB00118530 /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E978B96A2B31FFCB00118530 /* ValidationError.swift */; };
 		E978B96D2B31FFE700118530 /* MailValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E978B96C2B31FFE700118530 /* MailValidationService.swift */; };
 		E978B96F2B31FFFC00118530 /* PhoneValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E978B96E2B31FFFC00118530 /* PhoneValidationService.swift */; };
@@ -39,6 +42,12 @@
 		E978B9792B32BCEF00118530 /* TouristCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E978B9782B32BCEF00118530 /* TouristCellView.swift */; };
 		E978B97B2B32BD6000118530 /* TouristCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E978B97A2B32BD6000118530 /* TouristCellViewModel.swift */; };
 		E978B97D2B32C0F400118530 /* Tourist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E978B97C2B32C0F400118530 /* Tourist.swift */; };
+		E97FFE512B4BDAF000DE1030 /* DateValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97FFE502B4BDAF000DE1030 /* DateValidationService.swift */; };
+		E97FFE532B4BDB8400DE1030 /* DateTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97FFE522B4BDB8400DE1030 /* DateTextFieldView.swift */; };
+		E97FFE552B4BDC1500DE1030 /* DateValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97FFE542B4BDC1500DE1030 /* DateValidationViewModel.swift */; };
+		E97FFE582B4BEAFE00DE1030 /* PassportValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97FFE572B4BEAFE00DE1030 /* PassportValidationService.swift */; };
+		E97FFE5A2B4BEB6100DE1030 /* PassportTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97FFE592B4BEB6100DE1030 /* PassportTextFieldView.swift */; };
+		E97FFE5C2B4BEBBE00DE1030 /* PassportValidationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97FFE5B2B4BEBBE00DE1030 /* PassportValidationViewModel.swift */; };
 		E9D20F342B304BD600109FAD /* SF-Pro-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9D20F332B304BD600109FAD /* SF-Pro-Display-Black.otf */; };
 		E9D20F362B304BEA00109FAD /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9D20F352B304BEA00109FAD /* SF-Pro-Display-Bold.otf */; };
 		E9D20F382B304BF200109FAD /* SF-Pro-Display-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9D20F372B304BF200109FAD /* SF-Pro-Display-Heavy.otf */; };
@@ -79,9 +88,12 @@
 		E92E1BD32AA3716E00BB130E /* RoomDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDetailView.swift; sourceTree = "<group>"; };
 		E948548E2B35744E00D53962 /* Extension + Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Int.swift"; sourceTree = "<group>"; };
 		E94854902B35855200D53962 /* TwoColumnsViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoColumnsViewModifier.swift; sourceTree = "<group>"; };
-		E94F0AF32B3E1A5F00EAA92B /* Extension + collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + collection.swift"; sourceTree = "<group>"; };
+		E94F0AF32B3E1A5F00EAA92B /* Extension + Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Collection.swift"; sourceTree = "<group>"; };
 		E94F0AFC2B3E912E00EAA92B /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E961F7222B494C4500831558 /* Extension + View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + View.swift"; sourceTree = "<group>"; };
+		E96813F42B4C06EE00F2D4FE /* NameValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidationService.swift; sourceTree = "<group>"; };
+		E96813F62B4C076E00F2D4FE /* NameTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameTextFieldView.swift; sourceTree = "<group>"; };
+		E96813F82B4C07C300F2D4FE /* NameValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidationViewModel.swift; sourceTree = "<group>"; };
 		E978B96A2B31FFCB00118530 /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
 		E978B96C2B31FFE700118530 /* MailValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailValidationService.swift; sourceTree = "<group>"; };
 		E978B96E2B31FFFC00118530 /* PhoneValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneValidationService.swift; sourceTree = "<group>"; };
@@ -92,6 +104,12 @@
 		E978B9782B32BCEF00118530 /* TouristCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristCellView.swift; sourceTree = "<group>"; };
 		E978B97A2B32BD6000118530 /* TouristCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristCellViewModel.swift; sourceTree = "<group>"; };
 		E978B97C2B32C0F400118530 /* Tourist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tourist.swift; sourceTree = "<group>"; };
+		E97FFE502B4BDAF000DE1030 /* DateValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValidationService.swift; sourceTree = "<group>"; };
+		E97FFE522B4BDB8400DE1030 /* DateTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTextFieldView.swift; sourceTree = "<group>"; };
+		E97FFE542B4BDC1500DE1030 /* DateValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValidationViewModel.swift; sourceTree = "<group>"; };
+		E97FFE572B4BEAFE00DE1030 /* PassportValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportValidationService.swift; sourceTree = "<group>"; };
+		E97FFE592B4BEB6100DE1030 /* PassportTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportTextFieldView.swift; sourceTree = "<group>"; };
+		E97FFE5B2B4BEBBE00DE1030 /* PassportValidationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportValidationViewModel.swift; sourceTree = "<group>"; };
 		E9D20F332B304BD600109FAD /* SF-Pro-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Black.otf"; sourceTree = "<group>"; };
 		E9D20F352B304BEA00109FAD /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
 		E9D20F372B304BF200109FAD /* SF-Pro-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Heavy.otf"; sourceTree = "<group>"; };
@@ -206,8 +224,8 @@
 		E94854792B34B8F200D53962 /* Hotel */ = {
 			isa = PBXGroup;
 			children = (
-				E92E1BA22AA102B300BB130E /* HotelViewModel.swift */,
 				E92E1BAA2AA103BE00BB130E /* HotelView.swift */,
+				E92E1BA22AA102B300BB130E /* HotelViewModel.swift */,
 			);
 			path = Hotel;
 			sourceTree = "<group>";
@@ -254,6 +272,9 @@
 				E92E1BA62AA1034800BB130E /* BookingViewModel.swift */,
 				E978B9702B3200D000118530 /* MailValidationViewModel.swift */,
 				E978B9722B32013500118530 /* PhoneValidationViewModel.swift */,
+				E97FFE542B4BDC1500DE1030 /* DateValidationViewModel.swift */,
+				E97FFE5B2B4BEBBE00DE1030 /* PassportValidationViewModel.swift */,
+				E96813F82B4C07C300F2D4FE /* NameValidationViewModel.swift */,
 				E978B97A2B32BD6000118530 /* TouristCellViewModel.swift */,
 				E9008D8E2B34294F008DE992 /* ButtonTransactionViewModel.swift */,
 			);
@@ -263,12 +284,15 @@
 		E94854832B34BDA300D53962 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E9D385CB2B4C6A90005FCB16 /* Modifier */,
 				E92E1BAE2AA1053400BB130E /* BookingView.swift */,
 				E978B9742B32027700118530 /* BookingTextFieldView.swift */,
 				E978B9762B32102000118530 /* PhoneTextFieldView.swift */,
+				E97FFE522B4BDB8400DE1030 /* DateTextFieldView.swift */,
+				E97FFE592B4BEB6100DE1030 /* PassportTextFieldView.swift */,
+				E96813F62B4C076E00F2D4FE /* NameTextFieldView.swift */,
 				E978B9782B32BCEF00118530 /* TouristCellView.swift */,
 				E9008D8C2B342926008DE992 /* ButtonTransactionView.swift */,
-				E94854902B35855200D53962 /* TwoColumnsViewModifier.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -311,7 +335,7 @@
 			children = (
 				E948548E2B35744E00D53962 /* Extension + Int.swift */,
 				E9FDCE672B36E21800091F1C /* Extension + String.swift */,
-				E94F0AF32B3E1A5F00EAA92B /* Extension + collection.swift */,
+				E94F0AF32B3E1A5F00EAA92B /* Extension + Collection.swift */,
 				E961F7222B494C4500831558 /* Extension + View.swift */,
 			);
 			path = Extensions;
@@ -340,6 +364,9 @@
 			children = (
 				E978B96C2B31FFE700118530 /* MailValidationService.swift */,
 				E978B96E2B31FFFC00118530 /* PhoneValidationService.swift */,
+				E97FFE502B4BDAF000DE1030 /* DateValidationService.swift */,
+				E97FFE572B4BEAFE00DE1030 /* PassportValidationService.swift */,
+				E96813F42B4C06EE00F2D4FE /* NameValidationService.swift */,
 				E978B96A2B31FFCB00118530 /* ValidationError.swift */,
 			);
 			path = Validation;
@@ -370,6 +397,14 @@
 				E9D20F482B3053CB00109FAD /* NetworkError.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		E9D385CB2B4C6A90005FCB16 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				E94854902B35855200D53962 /* TwoColumnsViewModifier.swift */,
+			);
+			path = Modifier;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -455,6 +490,8 @@
 				E92E1B8D2AA0FC1D00BB130E /* HotelModel.swift in Sources */,
 				E978B9712B3200D000118530 /* MailValidationViewModel.swift in Sources */,
 				E978B96D2B31FFE700118530 /* MailValidationService.swift in Sources */,
+				E97FFE5A2B4BEB6100DE1030 /* PassportTextFieldView.swift in Sources */,
+				E96813F52B4C06EE00F2D4FE /* NameValidationService.swift in Sources */,
 				E9D20F4D2B3056FB00109FAD /* NetworkDispatcher.swift in Sources */,
 				E948548F2B35744E00D53962 /* Extension + Int.swift in Sources */,
 				E9D20F4F2B30577F00109FAD /* NetworkManager.swift in Sources */,
@@ -462,7 +499,7 @@
 				E978B96B2B31FFCB00118530 /* ValidationError.swift in Sources */,
 				E92E1BA52AA1031E00BB130E /* NumberViewModel.swift in Sources */,
 				E978B9732B32013500118530 /* PhoneValidationViewModel.swift in Sources */,
-				E94F0AF42B3E1A5F00EAA92B /* Extension + collection.swift in Sources */,
+				E94F0AF42B3E1A5F00EAA92B /* Extension + Collection.swift in Sources */,
 				E961F7232B494C4500831558 /* Extension + View.swift in Sources */,
 				E978B9772B32102000118530 /* PhoneTextFieldView.swift in Sources */,
 				E9D20F562B307F2A00109FAD /* Page.swift in Sources */,
@@ -471,22 +508,29 @@
 				E9F379B72B33624B00C8B172 /* BackButton.swift in Sources */,
 				E92E1BB82AA3228200BB130E /* SliderView.swift in Sources */,
 				E9D20F592B307F6F00109FAD /* CoordinatorView.swift in Sources */,
+				E97FFE582B4BEAFE00DE1030 /* PassportValidationService.swift in Sources */,
 				E92E1BAF2AA1053400BB130E /* BookingView.swift in Sources */,
 				E978B97B2B32BD6000118530 /* TouristCellViewModel.swift in Sources */,
 				E92E1B912AA0FDAC00BB130E /* BookingModel.swift in Sources */,
 				E978B9752B32027700118530 /* BookingTextFieldView.swift in Sources */,
 				E92E1BA72AA1034800BB130E /* BookingViewModel.swift in Sources */,
 				E92E1BB12AA105A000BB130E /* PaidView.swift in Sources */,
+				E96813F72B4C076E00F2D4FE /* NameTextFieldView.swift in Sources */,
 				E92E1BAB2AA103BE00BB130E /* HotelView.swift in Sources */,
 				E9008D8D2B342926008DE992 /* ButtonTransactionView.swift in Sources */,
 				E94F0AFD2B3E912E00EAA92B /* Colors.swift in Sources */,
+				E97FFE512B4BDAF000DE1030 /* DateValidationService.swift in Sources */,
 				E978B9792B32BCEF00118530 /* TouristCellView.swift in Sources */,
 				E94854912B35855200D53962 /* TwoColumnsViewModifier.swift in Sources */,
 				E92E1B7C2AA0FAB500BB130E /* Booking_AppsApp.swift in Sources */,
+				E97FFE552B4BDC1500DE1030 /* DateValidationViewModel.swift in Sources */,
 				E92E1BAD2AA1050C00BB130E /* NumberView.swift in Sources */,
 				E92E1BD42AA3716E00BB130E /* RoomDetailView.swift in Sources */,
 				E978B97D2B32C0F400118530 /* Tourist.swift in Sources */,
+				E97FFE532B4BDB8400DE1030 /* DateTextFieldView.swift in Sources */,
 				E92E1B8F2AA0FD1C00BB130E /* RoomModel.swift in Sources */,
+				E96813F92B4C07C300F2D4FE /* NameValidationViewModel.swift in Sources */,
+				E97FFE5C2B4BEBBE00DE1030 /* PassportValidationViewModel.swift in Sources */,
 				E9D20F492B3053CB00109FAD /* NetworkError.swift in Sources */,
 				E978B96F2B31FFFC00118530 /* PhoneValidationService.swift in Sources */,
 			);

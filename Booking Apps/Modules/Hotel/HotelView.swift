@@ -14,7 +14,7 @@ struct HotelView: View {
     var body: some View {
 	   ScrollView(.vertical) {
 		  
-		  VStack(alignment: .leading) {
+		  VStack(alignment: .leading, spacing: .zero) {
 			 
 			 makeSliderView(imageUrls: viewModel.hotelData?.imageUrls ?? [])
 			 
@@ -29,13 +29,15 @@ struct HotelView: View {
 			 
 			 
 			 makeHotelPrice(priceHotel: viewModel.hotelData?.minimalPrice ?? .zero,
-						 priceHotelForIt: viewModel.hotelData?.priceForIt.lowercased() ?? .defString)
+						 priceHotelForIt: viewModel.hotelData?.priceForIt.lowercased()
+						 ?? .defString)
 			 
 			 makeHotelInfo()
 			 
 			 makeHotelPeculiarities()
 			 
-			 makeHotelDescription(hotelDescription: viewModel.hotelData?.aboutTheHotel.description ?? .defString)
+			 makeHotelDescription(hotelDescription: viewModel.hotelData?.aboutTheHotel.description
+							  ?? .defString)
 			 
 			 createNonClickableButton(
 				title: Constants.firstUnclickableTitle,
@@ -85,9 +87,12 @@ private extension HotelView {
 			 .frame(width: Constants.frameHotelRatRectangleWidth,
 				   height: Constants.frameHotelRatRectangleHeight)
 		  
-		  HStack {
+		  HStack(spacing: Constants.spacingHotelRat) {
 			 Image(Constants.starImage)
 				.foregroundColor(Color(.richYellow))
+				.scaledToFit()
+				.frame(width: Constants.frameHotelImageHeiWidth,
+					  height: Constants.frameHotelImageHeiWidth)
 			 Text("\(rating) \(ratingName)")
 				.foregroundColor(Color(.richYellow))
 				.font(Font.custom(.baseFont, size: Constants.fontHotelRat)
@@ -131,7 +136,7 @@ private extension HotelView {
     
     func makeHotelPrice(priceHotel: Int, priceHotelForIt: String) -> some View {
 	   HStack(alignment: .bottom, spacing: Constants.spacingHotelPrice) {
-		  Text("от \(priceHotel) ₽")
+		  Text("от \(priceHotel) \(.ruble)")
 			 .font(Font.custom(.baseFont, size: Constants.fontHotelPriceFir)
 				.weight(.semibold))
 		  Text(priceHotelForIt)
@@ -141,22 +146,22 @@ private extension HotelView {
 	   }
 	   .padding(.top, Constants.padTopHotelPrice)
 	   .padding(.leading, Constants.padHorizontGeneral)
+	   .padding(.bottom, .zero)
     }
     
     func makeHotelInfo() -> some View {
-	   VStack{
+	   VStack(spacing: .zero) {
 		  Text(Constants.aboutHotel)
 			 .font(Font.custom(.baseFont, size: Constants.fontHotelInfo)
 				.weight(.medium))
 			 .frame(maxWidth: .infinity, alignment: .leading)
 			 .padding(.top, Constants.padTopHotelInfo)
 			 .padding(.leading, Constants.padLeadingHotelInfo)
-			 .padding(.bottom, Constants.padBottomHotelInfo)
 	   }
     }
     
     func makeHotelPeculiarities() -> some View {
-	   VStack(alignment: .leading) {
+	   VStack(alignment: .leading, spacing: .zero) {
 		  
 		  HStack {
 			 Text("\(viewModel.hotelData?.aboutTheHotel.peculiarities[0] ?? .defString)")
@@ -209,31 +214,34 @@ private extension HotelView {
     func createNonClickableButton(title: String,
 						    subtitle: String,
 						    imageName: String) -> some View {
-	   HStack {
-		  Image(imageName)
-			 .frame(width: Constants.frameNonClickImageSecHeightWid,
-				   height: Constants.frameNonClickImageSecHeightWid)
-		  
-		  VStack(alignment: .leading) {
-			 Text(title)
-				.font(.custom(.baseFont,
-						    size: Constants.fontNonClickFirst))
-				.padding(.bottom, Constants.padBottomClickableBut)
-			 Text(subtitle)
-				.foregroundColor(Color(.paleGray))
-				.font(.custom(.baseFont,
-						    size: Constants.fontNonClickSec))
+	   Button { } label: {
+		  HStack {
+			 Image(imageName)
+				.frame(width: Constants.frameNonClickImageSecHeightWid,
+					  height: Constants.frameNonClickImageSecHeightWid)
+			 
+			 VStack(alignment: .leading, spacing: .zero) {
+				Text(title)
+				    .font(.custom(.baseFont,
+							   size: Constants.fontNonClickFirst))
+				    .padding(.bottom, Constants.padBottomClickableBut)
+				Text(subtitle)
+				    .foregroundColor(Color(.paleGray))
+				    .font(.custom(.baseFont,
+							   size: Constants.fontNonClickSec))
+			 }
+			 .padding(.leading, Constants.padLeadingClickableButText)
+			 
+			 Image(Constants.rightArrowImage)
+				.foregroundColor(.black)
+				.frame(width: Constants.frameNonClickImageFirstWidth,
+					  height: Constants.frameNonClickImageFirstHeight)
+				.padding(.leading, Constants.padLeadingClickableButImage)
+			 
 		  }
-		  .padding(.leading, Constants.padLeadingClickableButText)
-		  
-		  Image(Constants.rightArrowImage)
-			 .foregroundColor(.black)
-			 .frame(width: Constants.frameNonClickImageFirstWidth,
-				   height: Constants.frameNonClickImageFirstHeight)
-			 .padding(.leading, Constants.padLeadingClickableButImage)
-		  
+		  .foregroundColor(Color(.list))
+		  .padding(.leading, Constants.padLeadingClickableButGeneral)
 	   }
-	   .padding(.leading, Constants.padLeadingClickableButGeneral)
     }
     
     func makeNumberSelection() -> some View {
@@ -287,19 +295,18 @@ fileprivate extension HotelView {
 	   static let padBottomPriceHotel = 3.0
 	   static let padTopHotelInfo = 40.0
 	   static let padLeadingHotelInfo = 16.0
-	   static let padBottomHotelInfo = 5.0
 	   static let padTopFirstPecul = 21.0
 	   static let padLeadingFirstPecul = 26.0
 	   static let padTopSecondPecul = 18.0
 	   static let padLeadingThirdPecul = 28.0
-	   static let padTopHotelDesc = 17.0
+	   static let padTopHotelDesc = 12.0
 	   static let padBottomClickableBut = 2.0
 	   static let padLeadingClickableButImage = 120.0
 	   static let padLeadingClickableButGeneral = 33.0
 	   static let padTopNumberSel = 55.0
 	   static let padBottomNumberSel = 28.0
 	   static let padTopHotelPrice = 16.0
-	   static let padLeadingClickableButText = 14.0
+	   static let padLeadingClickableButText = 12.0
 	   
 	   static let corRadHotelRating = 5.0
 	   static let corRadNumberSel = 15.0
@@ -323,7 +330,9 @@ fileprivate extension HotelView {
 	   static let frameNonClickImageSecHeightWid = 20.0
 	   static let frameNumberSelRectangleWidth = 343.0
 	   static let frameNumberSelRectangleHeight = 48.0
+	   static let frameHotelImageHeiWidth = 15.0
 	   
 	   static let spacingHotelPrice = 8.0
+	   static let spacingHotelRat = 2.0
     }
 }

@@ -11,13 +11,13 @@ final class TouristCellViewModel: ObservableObject {
     
     @Published var isShow = true
     let index: Int
-    let nameTourists = ["Первый", "Второй", "Третий", "Четвертый", "Пятый", "Шестой", "Седьмой", "Восьмой", "Девятый", "Десятый"]
-    let name = MailValidationViewModel(placeholder: "Имя")
-    let surname = MailValidationViewModel(placeholder: "Фамилия")
-    let dateOfBirth = MailValidationViewModel(placeholder: " Дата рождения")
-    let citizenship = MailValidationViewModel(placeholder: "Гражданство")
-    let passportNumber = MailValidationViewModel(placeholder: "Номер загранпаспорта")
-    let validityPeriodOfPassport = MailValidationViewModel(placeholder: "Срок действия загранпаспорта")
+    let nameTourists = ["Первый", "Второй", "Третий", "Четвертый", "Пятый", "Шестой", "Седьмой", "Восьмой"]
+    let name = NameValidationViewModel(placeholder: "Имя")
+    let surname = NameValidationViewModel(placeholder: "Фамилия")
+    let dateOfBirth = DateValidationViewModel(placeholder: "Дата рождения")
+    let citizenship = NameValidationViewModel(placeholder: "Гражданство")
+    let passportNumber = PassportValidationViewModel(placeholder: "Номер загранпаспорта")
+    let validityPeriodOfPassport = DateValidationViewModel(placeholder: "Срок действия загранпаспорта")
     
     init(index: Int) {
 	   self.index = index

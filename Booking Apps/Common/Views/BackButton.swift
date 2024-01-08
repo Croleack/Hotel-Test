@@ -17,22 +17,41 @@ struct BackButton: View {
 		  Button(action: {
 			 self.presentationMode.wrappedValue.dismiss()
 		  }) {
-			 Image("ic-navig")
-				.frame(width: 6, height: 12)
+			 Image(Constants.navigImage)
+				.frame(width: Constants.frameImageWidth,
+					  height: Constants.frameImageHeight
+				)
 				.foregroundColor(.black)
 				.frame(alignment: .leading)
 		  }
 		  Spacer()
 		  Text(text)
 			 .foregroundColor(.black)
-			 .font(Font.custom(.baseFont, size: 18)
+			 .font(Font.custom(.baseFont, size: Constants.fontText)
 				.weight(.medium))
-			 .frame(width: 300, height: 50, alignment: .center)
+			 .frame(width: Constants.frameTextWidth,
+				   height: Constants.frameTextHeight,
+				   alignment: .center
+			 )
 			 .lineLimit(nil)
 			 .multilineTextAlignment(.center)
 		  Spacer()
 	   }
 	   .frame(alignment: .center)
+    }
+}
+
+// MARK: - Constants
+
+fileprivate extension BackButton {
+    enum Constants {
+	   
+	   static let navigImage = "ic-navig"
+	   static let fontText = 18.0
+	   static let frameImageHeight = 12.0
+	   static let frameImageWidth = 6.0
+	   static let frameTextHeight = 50.0
+	   static let frameTextWidth = 300.0
     }
 }
 

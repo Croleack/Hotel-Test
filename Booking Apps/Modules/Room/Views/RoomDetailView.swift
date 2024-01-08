@@ -17,7 +17,7 @@ struct RoomDetailView: View {
     var body: some View {
 	   ScrollView(.vertical) {
 		  
-		  VStack(alignment: .leading) {
+		  VStack(alignment: .leading, spacing: .zero) {
 			 
 			 ForEach(rooms ?? []) { room in
 				makeSliderView(imageUrls: room.imageUrls)
@@ -72,7 +72,7 @@ private extension RoomDetailView {
     }
     
     func makePeculiarities(_ peculiarities: [String?]) -> some View {
-	   VStack(alignment: .leading) {
+	   VStack(alignment: .leading, spacing: .zero) {
 		  
 		  HStack {
 			 if let firstPeculiarity = peculiarities[0] {
@@ -126,13 +126,13 @@ private extension RoomDetailView {
 		  .foregroundColor(Color(.deepBlue))
 		  .disabled(true)
 		  .padding(.leading, Constants.padLeadingDisabledBut)
-		  .padding(.top, 16)
+		  .padding(.top, Constants.padTopDisabledButton)
 	   }
     }
     
     func makePriceBlock(price: Int, period: String) -> some View {
 	   HStack(alignment: .bottom, spacing: Constants.spacingPriceBlock) {
-		  Text("\(price)₽")
+		  Text("\(price) \(.ruble)")
 			 .font(Font.custom(.baseFont, size: Constants.fontPriceBlockFirst)
 				.weight(.semibold))
 		  Text("\(period)")
@@ -176,17 +176,19 @@ fileprivate extension RoomDetailView {
 	   static let DisabledButImage = "ic-rightBlue"
 	   
 	   static let padHorizontGeneral = 16.0
-	   static let padTopSlider = 40.0
+	   static let padTopSlider = 24.0
 	   static let padTopRoomLabel = 8.0
 	   static let padTopPeculiarit = 13.0
 	   static let padLeadingPeculiarit = 26.0
 	   static let padLeadingPeculiaritSec = 18.0
-	   static let padTopPeculiaritThird = 18.0
+	   static let padTopPeculiaritThird = 13.0
 	   static let padLeadingPeculiaritThird = 26.0
 	   static let padLeadingDisabledBut = 26.0
 	   static let padBottomPriceBlockText = 3.0
 	   static let padTopPriceBlock = 21.0
 	   static let padTopRoomDet = 16.0
+	   static let padTopDisabledButton = 13.0
+	  
 	   
 	   static let corRadDetailBut = 15.0
 	   

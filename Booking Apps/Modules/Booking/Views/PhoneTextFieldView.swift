@@ -13,7 +13,7 @@ struct PhoneTextFieldView: View {
     
     var body: some View {
 	   
-	   VStack(alignment: .leading) {
+	   VStack(alignment: .leading, spacing: .zero) {
 		  if !viewModel.text.isEmpty {
 			 Text(viewModel.placeholder)
 				.font(Font.custom(.baseFont, size: Constants.fontPlaceholderPrimary))
@@ -40,13 +40,17 @@ struct PhoneTextFieldView: View {
 	   .frame(height: Constants.frameHeight)
 	   .background(viewModel.isValidPhone ? Color(.lightGray) : Color(.error))
 	   .animation(.easeInOut, value: viewModel.isValidPhone)
+	   .cornerRadius(Constants.cornerRadius)
     }
 }
 
 extension PhoneTextFieldView {
     
     func format(with mask: String, phone: String) -> String {
-	   let numbers = phone.replacingOccurrences(of: Constants.numberValid, with: "", options: .regularExpression)
+	   let numbers = phone.replacingOccurrences(of: Constants.numberValid,
+									    with: "",
+									    options: .regularExpression
+	   )
 	   var result = ""
 	   var index = numbers.startIndex
 	   for ch in mask where index < numbers.endIndex {
@@ -72,6 +76,7 @@ fileprivate extension PhoneTextFieldView {
 	   static let frameImageWidth = 6.0
 	   static let frameHeight = 52.0
 	   static let paddingHorizontal = 16.0
+	   static let cornerRadius = 10.0
 	   
 	   static let numberFormat = "(XXX) XXX-XX-XX"
 	   static let numberValid = "[^0-9]"

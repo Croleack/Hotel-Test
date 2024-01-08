@@ -12,4 +12,10 @@ enum ValidationError: Error {
     case notMail
     case emptyPhone
     case notPhone
+    case emptyDate
+    case notDate
+    case emptyPassport
+    case notPassport
+    case emptyName
+    case notName
 }

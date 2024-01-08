@@ -9,13 +9,13 @@ import SwiftUI
 
 struct TwoColumnsViewModifier: ViewModifier {
     
-    var size: CGFloat = 16
-    var lineHeight: CGFloat = 100
+    var size = Constants.size
+    var lineHeight = Constants.lineHeight
     var weight: Font.Weight = .regular
     
     func body(content: Content) -> some View {
-	   let calcPrecent: CGFloat = (size / 100) * lineHeight
-	   let padding: CGFloat = (calcPrecent - size) / 2
+	   let calcPrecent = (size / 100) * lineHeight
+	   let padding = (calcPrecent - size) / 2
 	   
 	   return content
 		  .lineSpacing(padding)
@@ -23,6 +23,15 @@ struct TwoColumnsViewModifier: ViewModifier {
     }
 }
 
+// MARK: - Constants
 
+fileprivate extension TwoColumnsViewModifier {
+    enum Constants {
+	   
+	   static let size: CGFloat = 16.0
+	   static let lineHeight: CGFloat = 100.0
+
+    }
+}
 
 

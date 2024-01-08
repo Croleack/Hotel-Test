@@ -12,6 +12,6 @@ extension Int {
     var withSeparator: String {
 	   let formatter = NumberFormatter()
 	   formatter.numberStyle = .decimal
-	   return formatter.string(from: NSNumber(value: self)) ?? ""
+	   return formatter.string(from: NSNumber(value: self)) ?? .defString
     }
 }

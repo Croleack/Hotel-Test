@@ -14,6 +14,7 @@ enum Colors {
     case lightGray
     case error
     case deepBlue
+    case listColor
     
     var value: Color {
 	   switch self {
@@ -29,6 +30,8 @@ enum Colors {
 		  return Color("Error")
 	   case .deepBlue:
 		  return Color("DeepBlue")
+	   case .listColor:
+		  return Color("ListColor")
 	   }
     }
 }

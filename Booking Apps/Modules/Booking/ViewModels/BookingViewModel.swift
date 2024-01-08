@@ -12,9 +12,12 @@ final class BookingViewModel: ObservableObject {
     @Published var bookingData: BookingModel?
     @Published var tourists = [Tourist.clearTourist]
     
-    var toutistsCells = [TouristCellViewModel(index: 0)]
+    var touristsCells = [TouristCellViewModel(index: 0)]
     let phone = PhoneValidationViewModel()
     let mail = MailValidationViewModel(placeholder: "Почта")
+    let date = DateValidationViewModel(placeholder: "Дата рождения")
+    let passport = PassportValidationViewModel(placeholder: "Номер загранпаспорта")
+    let name = NameValidationViewModel(placeholder: "Имя")
     let buttonTransaction = ButtonTransactionViewModel(title: .defString)
     @Published var isShowErrorAlert = false
     @Published var isActiveTransactionLink = false
@@ -49,7 +52,7 @@ final class BookingViewModel: ObservableObject {
 	   }
     }
     
-    private func updateButtonTransactionTitle() {
+    func updateButtonTransactionTitle() {
 	   buttonTransaction.title = "Оплатить \(totalAmount.withSeparator) ₽"
     }
     
@@ -70,14 +73,14 @@ final class BookingViewModel: ObservableObject {
 	   } else {
 		  phone.isValidPhone = true
 	   }
-	   var result = isMail && isPhone
-	   for tourist in toutistsCells {
-		  let isName = checkTouristCell(touristCell: tourist.name)
-		  let isSurname = checkTouristCell(touristCell: tourist.surname)
-		  let isDateOfBirth = checkTouristCell(touristCell: tourist.dateOfBirth)
-		  let isPassportNumber = checkTouristCell(touristCell: tourist.passportNumber)
-		  let isCitizenship = checkTouristCell(touristCell: tourist.citizenship)
-		  let isValidityPeriodOfPassport = checkTouristCell(touristCell: tourist.validityPeriodOfPassport)
+	   var result = isMail && isPhone 
+	   for tourist in touristsCells {
+		  let isName = checkTextCell(touristCell: tourist.name)
+		  let isSurname = checkTextCell(touristCell: tourist.surname)
+		  let isDateOfBirth = checkTouristDateOfBirth(touristDateOfBirth: tourist.dateOfBirth)
+		  let isPassportNumber = checkTouristPassport(touristPas: tourist.passportNumber)
+		  let isCitizenship = checkTextCell(touristCell: tourist.citizenship)
+		  let isValidityPeriodOfPassport = checkTouristDateOfBirth(touristDateOfBirth: tourist.validityPeriodOfPassport)
 		  if !isName { result = false }
 		  if !isSurname { result = false }
 		  if !isDateOfBirth { result = false }
@@ -89,7 +92,7 @@ final class BookingViewModel: ObservableObject {
     }
     
     func deployAllTourists() {
-	   for tourist in toutistsCells {
+	   for tourist in touristsCells {
 		  tourist.isShow = true
 	   }
     }
@@ -104,6 +107,16 @@ final class BookingViewModel: ObservableObject {
 	   }
     }
     
+    func checkTextCell(touristCell: NameValidationViewModel) -> Bool {
+	   if touristCell.text.isEmpty {
+		  touristCell.isValidName = false
+		  return false
+	   } else {
+		  touristCell.isValidName = true
+		  return true
+	   }
+    }
+    
     func checkTouristsInfoAndNavigate() {
 	   if checkTouristsInfo() {
 		  isActiveTransactionLink = true
@@ -113,11 +126,85 @@ final class BookingViewModel: ObservableObject {
 	   }
     }
     
-    var totalAmount: Int {
-	   let tourPrice = bookingData?.tourPrice ?? .zero
-	   let fuelCharge = bookingData?.fuelCharge ?? .zero
-	   let serviceCharge = bookingData?.serviceCharge ?? .zero
+  /// checkTouristDateOfBirth - the function allows you to enter only valid values
+    func checkTouristDateOfBirth(touristDateOfBirth: DateValidationViewModel) -> Bool {
+	   guard touristDateOfBirth.text.count == 10 else {
+		  touristDateOfBirth.isValidDate = false
+		  return false
+	   }
 	   
+	   let components = touristDateOfBirth.text.split(separator: "/")
+	   guard components.count == 3 else {
+		  touristDateOfBirth.isValidDate = false
+		  return false
+	   }
+	   
+	   guard let day = Int(components[0]),
+		    let month = Int(components[1]),
+		    let year = Int(components[2]) else {
+		  touristDateOfBirth.isValidDate = false
+		  return false
+	   }
+	   
+	   if !(1...12).contains(month) {
+		  touristDateOfBirth.isValidDate = false
+		  return false
+	   }
+	   
+	   switch month {
+	   case 1, 3, 5, 7, 8, 10, 12:
+		  if !(1...31).contains(day) {
+			 touristDateOfBirth.isValidDate = false
+			 return false
+		  }
+	   case 4, 6, 9, 11:
+		  if !(1...30).contains(day) {
+			 touristDateOfBirth.isValidDate = false
+			 return false
+		  }
+	   case 2:
+		  let isLeapYear = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)
+		  if isLeapYear {
+			 if !(1...29).contains(day) {
+				touristDateOfBirth.isValidDate = false
+				return false
+			 }
+		  } else {
+			 if !(1...28).contains(day) {
+				touristDateOfBirth.isValidDate = false
+				return false
+			 }
+		  }
+	   default:
+		  touristDateOfBirth.isValidDate = false
+		  return false
+	   }
+	   
+	   touristDateOfBirth.isValidDate = true
+	   return true
+    }
+    
+    func checkTouristPassport(touristPas: PassportValidationViewModel) -> Bool {
+	   if touristPas.text.count != 9 {
+		  touristPas.isValid = false
+		  return false
+	   } else {
+		  touristPas.isValid = true
+		  return true
+	   }
+    }
+    
+    var tourPrice: Int {
+	   tourists.count * (bookingData?.tourPrice ?? .zero)
+    }
+    var fuelCharge: Int {
+	   tourists.count * (bookingData?.fuelCharge ?? .zero)
+    }
+    var serviceCharge: Int {
+	   tourists.count * (bookingData?.serviceCharge ?? .zero)
+    }
+    
+    var totalAmount: Int {
 	   return tourPrice + fuelCharge + serviceCharge
     }
 }

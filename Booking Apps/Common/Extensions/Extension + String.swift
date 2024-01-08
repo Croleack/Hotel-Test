@@ -13,6 +13,7 @@ extension String {
     static let baseURL = "https://run.mocky.io/v3/"
     static let baseFont = "SF Pro Display"
     static let defString = ""
+    static let ruble = "₽"
     
     
     func widthOfString(usingFont font: UIFont) -> CGFloat {

@@ -35,30 +35,18 @@ struct TouristCellView: View {
 			 .weight(.medium))
 		  if viewModel.isShow {
 			 VStack(spacing: Constants.spacingBookingText) {
-				BookingTextFieldView(viewModel: viewModel.name,
-								 keyboardType: .default
-				)
-				.cornerRadius(Constants.cornerRadiusText)
-				BookingTextFieldView(viewModel: viewModel.surname,
-								 keyboardType: .default
-				)
-				.cornerRadius(Constants.cornerRadiusText)
-				BookingTextFieldView(viewModel: viewModel.dateOfBirth,
-								 keyboardType: .numbersAndPunctuation
-				)
-				.cornerRadius(Constants.cornerRadiusText)
-				BookingTextFieldView(viewModel: viewModel.citizenship,
-								 keyboardType: .default
-				)
-				.cornerRadius(Constants.cornerRadiusText)
-				BookingTextFieldView(viewModel: viewModel.passportNumber,
-								 keyboardType: .asciiCapableNumberPad
-				)
-				.cornerRadius(Constants.cornerRadiusText)
-				BookingTextFieldView(viewModel: viewModel.validityPeriodOfPassport,
-								 keyboardType: .numbersAndPunctuation
-				)
-				.cornerRadius(Constants.cornerRadiusText)
+				NameTextFieldView(viewModel: viewModel.name)
+				    .cornerRadius(Constants.cornerRadiusText)
+				NameTextFieldView(viewModel: viewModel.surname)
+				    .cornerRadius(Constants.cornerRadiusText)
+				DateTextFieldView(viewModel: viewModel.dateOfBirth)
+				    .cornerRadius(Constants.cornerRadiusText)
+				NameTextFieldView(viewModel: viewModel.citizenship)
+				    .cornerRadius(Constants.cornerRadiusText)
+				PassportTextFieldView(viewModel: viewModel.passportNumber)
+				    .cornerRadius(Constants.cornerRadiusText)
+				DateTextFieldView(viewModel: viewModel.validityPeriodOfPassport)
+				    .cornerRadius(Constants.cornerRadiusText)
 			 }
 		  }
 	   }

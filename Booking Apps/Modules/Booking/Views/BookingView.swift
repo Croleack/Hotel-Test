@@ -39,11 +39,7 @@ struct BookingView: View {
 			 
 			 makeTouristsInfo()
 			 
-			 makeBlockWithPrices(
-				tourPrice: viewModel.bookingData?.tourPrice ?? .zero,
-				fuelCharge: viewModel.bookingData?.fuelCharge ?? .zero,
-				serviceCharge: viewModel.bookingData?.serviceCharge ?? .zero
-			 )
+			 makeBlockWithPrices()
 			 
 			 ButtonTransactionView(viewModel: viewModel.buttonTransaction) {
 				viewModel.checkTouristsInfoAndNavigate()
@@ -77,8 +73,12 @@ private extension BookingView {
 			 .fill(Color(.paleYellow))
 			 .frame(width: Constants.frameRectangleHoratingWidth,
 				   height: Constants.frameRectangleHoratingHeight)
-		  HStack {
+		  HStack(spacing: Constants.spacingHorating) {
 			 Image(Constants.ratingStar)
+				.foregroundColor(Color(.richYellow))
+				.scaledToFit()
+				.frame(width: Constants.frameImageHoratHeiWid,
+					  height: Constants.frameImageHoratHeiWid)
 			 Text("\(horating) \(ratingName)")
 				.foregroundColor(Color(.richYellow))
 				.font(Font.custom(.baseFont, size: Constants.fontHorating)
@@ -136,28 +136,28 @@ private extension BookingView {
 		  .padding(.bottom, Constants.padBottomSendingCheck)
     }
     
-    func makeBlockWithPrices(tourPrice: Int, fuelCharge: Int, serviceCharge: Int) -> some View {
+    func makeBlockWithPrices() -> some View {
 	   VStack(spacing: Constants.spacingBlockWith) {
 		  HStack {
 			 Text(Constants.tour)
 				.font(Font.custom(.baseFont, size: Constants.fontBlockWithPrices))
 				.foregroundColor(Color(.paleGray))
 			 Spacer()
-			 Text("\(tourPrice) ₽")
+			 Text("\(viewModel.tourPrice) \(.ruble)")
 		  }
 		  HStack {
 			 Text(Constants.fuelSurcharge)
 				.font(Font.custom(.baseFont, size: Constants.fontBlockWithPrices))
 				.foregroundColor(Color(.paleGray))
 			 Spacer()
-			 Text("\(fuelCharge) ₽")
+			 Text("\(viewModel.fuelCharge) \(.ruble)")
 		  }
 		  HStack {
 			 Text(Constants.serviceFee)
 				.font(Font.custom(.baseFont, size: Constants.fontBlockWithPrices))
 				.foregroundColor(Color(.paleGray))
 			 Spacer()
-			 Text("\(serviceCharge) ₽")
+			 Text("\(viewModel.serviceCharge) \(.ruble)")
 		  }
 		  
 		  HStack {
@@ -165,7 +165,7 @@ private extension BookingView {
 				.font(Font.custom(.baseFont, size: Constants.fontBlockWithPrices))
 				.foregroundColor(Color(.paleGray))
 			 Spacer()
-			 Text("\(viewModel.totalAmount) ₽")
+			 Text("\(viewModel.totalAmount) \(.ruble)")
 				.font(Font.custom(.baseFont, size: Constants.fontBlockWithPrices)
 				    .weight(.medium))
 				.foregroundColor(Color(.deepBlue))
@@ -199,9 +199,11 @@ private extension BookingView {
 		  bookingDataCell(title: Constants.countryCity,
 					   value: viewModel.bookingData?.arrivalCountry ?? .defString)
 		  bookingDataCell(title: Constants.dates,
-					   value: "\(viewModel.bookingData?.tourDateStart ?? .defString) - \(viewModel.bookingData?.tourDateStop ?? "")")
+					   value: "\(viewModel.bookingData?.tourDateStart ?? .defString) - " +
+					   "\(viewModel.bookingData?.tourDateStop ?? .defString)")
 		  bookingDataCell(title: Constants.numberOfNights,
-					   value: "\(viewModel.bookingData?.numberOfNights ?? .zero) \(Constants.nights)")
+					   value: "\(viewModel.bookingData?.numberOfNights ?? .zero)" +
+					   " \(Constants.nights)")
 		  bookingDataCell(title: Constants.hotel,
 					   value: viewModel.bookingData?.hotelName ?? .defString)
 		  bookingDataCell(title: Constants.room,
@@ -215,7 +217,7 @@ private extension BookingView {
     private func makeTouristsInfo() -> some View {
 	   VStack {
 		  ForEach(.zero ..< viewModel.tourists.count, id: \.self) { index in
-			 TouristCellView(viewModel: viewModel.toutistsCells[index])
+			 TouristCellView(viewModel: viewModel.touristsCells[index])
 		  }
 		  if viewModel.tourists.count < Constants.maximumTourists {
 			 VStack {
@@ -223,8 +225,10 @@ private extension BookingView {
 				    Text(Constants.addTourist)
 				    Spacer()
 				    Button {
-					   viewModel.toutistsCells.append(TouristCellViewModel(index: viewModel.tourists.count))
+					   viewModel.touristsCells
+						  .append(TouristCellViewModel(index: viewModel.tourists.count))
 					   viewModel.tourists.append(Tourist.clearTourist)
+					   viewModel.updateButtonTransactionTitle()
 				    } label: {
 					   Image(Constants.addTouristImage)
 						  .frame(width: Constants.frameAddTouristImage,
@@ -250,7 +254,8 @@ fileprivate extension BookingView {
 	   static let backButton = "Бронирование"
 	   static let ratingStar = "ic-star"
 	   static let buyerInformation = "Информация о покупателе"
-	   static let sendingCheck = "Эти данные никому не передаются. После оплаты мы вышли чек на указанный вами номер и почту"
+	   static let sendingCheck = "Эти данные никому не передаются. После оплаты мы " +
+	   "вышлем чек на указанный вами номер и почту"
 	   static let tour = "Тур"
 	   static let fuelSurcharge = "Топливный сбор"
 	   static let serviceFee = "Сервисный сбор"
@@ -272,11 +277,11 @@ fileprivate extension BookingView {
 	   static let padTopHorating = 24.0
 	   static let padTopHotelName = 8.0
 	   static let padTopHotelAdress = 8.0
-	   static let padBottomHotelAdress = 40.0
+	   static let padBottomHotelAdress = 24.0
 	   static let padTopSendingCheck = 8.0
 	   static let padBottomSendingCheck = 40.0
 	   static let padTopBlockWithPrices = 24.0
-	   static let padTopBuyerInformation = 40.0
+	   static let padTopBuyerInformation = 24.0
 	   
 	   static let corHorating = 5.0
 	   static let corTextField = 12.0
@@ -292,14 +297,16 @@ fileprivate extension BookingView {
 	   
 	   static let frameRectangleHoratingHeight = 29.0
 	   static let frameRectangleHoratingWidth = 149.0
+	   static let frameImageHoratHeiWid = 15.0
 	   static let frameBookingDataWidth = 110.0
 	   static let frameAddTouristImage = 32.0
 	   
 	   static let spacingBookingData = 40.0
 	   static let spacingBlockWith = 16.0
 	   static let spacingBooking = 16.0
+	   static let spacingHorating = 2.0
 	   
 	   static let lineHeight = 120.0
-	   static let maximumTourists = 10
+	   static let maximumTourists = 8
     }
 }
