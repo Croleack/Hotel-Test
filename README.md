@@ -1,9 +1,9 @@
 # I am live my job 
 
-Тестовое задание на языке ﻿SwiftUI.  Архитектура MVVM. Сторонние библиотеке не импортировались. 4 экрана, данные приходят по API.
+Тестовое задание на языке ﻿SwiftUI.  Архитектура MVVM + coordinator. Сторонние библиотеке не импортировались. 4 экрана, данные приходят по API.
 
 Видео с демонстрацией  - 
-https://drive.google.com/file/d/17t3TcW9XKwNhdPrEjl-65kEqO-bD9r9Z/view
+https://drive.google.com/file/d/1kF6WlP-7HZoMUaHmIAc-9pQI8yZJIaqW/view?usp=sharing
 
 Ссылка на макет Figma 
 https://www.figma.com/file/Cumbjl2x9FHKhh5Wvyjq1g/iOS-(Copy)?type=design&node-id=1-795&mode=design&t=xntelgqStR7T7OwJ-0
